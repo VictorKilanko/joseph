@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Mentor | JOSEPH</title>
+<meta name="description" content="Join Joseph as a mentor. Give back, build your legacy, and help the next generation find and deploy their gifts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307070F'/><circle cx='16' cy='5' r='3.5' fill='%23F59E0B'/><circle cx='5' cy='27' r='3.5' fill='%238B5CF6'/><circle cx='27' cy='27' r='3.5' fill='%238B5CF6'/></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07070F;--bg2:#0C0C1A;--bg3:#101020;
+  --card:rgba(255,255,255,0.03);--card-h:rgba(255,255,255,0.055);
+  --border:rgba(255,255,255,0.07);--border-h:rgba(139,92,246,0.38);
+  --p:#8B5CF6;--pl:#A78BFA;--pd:#6D28D9;--pglow:rgba(139,92,246,0.28);
+  --g:#F59E0B;--gl:#FCD34D;--gglow:rgba(245,158,11,0.28);
+  --green:#4ADE80;
+  --t:#FFFFFF;--t2:#9CA3AF;--t3:#4B5563;--t4:#374151;
+  --brand:'Syne',sans-serif;--body:'Outfit',sans-serif;--mono:'JetBrains Mono',monospace;
+  --r:16px;--rs:10px;--rp:100px;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;opacity:0.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none;z-index:9997}
+
+/* ── Cursor ── */
+#cur,#crf{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition-property:width,height,background,border-color;transition-duration:0.2s}
+#cur{width:10px;height:10px;background:var(--p);border-radius:50%}
+#crf{width:34px;height:34px;border:1px solid rgba(139,92,246,0.45);border-radius:50%;transition-duration:0.3s}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 0;transition:padding 0.3s var(--ease),background 0.3s,border-color 0.3s}
+nav.on{padding:13px 0;background:rgba(7,7,15,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.ni{max-width:1160px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nlogo-t{font-family:var(--brand);font-weight:800;font-size:1rem;letter-spacing:0.2em;color:var(--t)}
+.nlinks{display:flex;align-items:center;gap:34px;list-style:none}
+.nlinks a{color:var(--t2);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:color 0.25s}
+.nlinks a:hover{color:var(--t)}
+.nbtn{background:var(--p)!important;color:#fff!important;padding:9px 22px!important;border-radius:var(--rp)!important;font-weight:600!important;font-size:0.86rem!important;box-shadow:0 0 22px var(--pglow);transition:all 0.25s!important}
+.nbtn:hover{transform:translateY(-1px);box-shadow:0 0 40px var(--pglow)!important}
+
+/* ── Shared ── */
+.sec{padding:110px 28px}
+.con{max-width:1160px;margin:0 auto}
+.gt{background:linear-gradient(135deg,var(--pl),var(--gl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:0.68rem;color:var(--pl);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:16px}
+.stag::before{content:'';width:16px;height:1px;background:var(--p)}
+.sh{font-family:var(--brand);font-weight:800;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.12;letter-spacing:-0.024em;margin-bottom:14px}
+.ss{font-size:1rem;color:var(--t2);max-width:480px;line-height:1.76}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;padding:14px 28px;border-radius:var(--rp);font-weight:600;font-size:0.94rem;text-decoration:none;border:none;box-shadow:0 0 32px var(--pglow),inset 0 1px 0 rgba(255,255,255,0.12);transition:all 0.3s var(--ease);cursor:none;font-family:var(--body)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 0 56px var(--pglow),0 12px 36px rgba(109,40,217,0.4)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--t2);padding:14px 28px;border-radius:var(--rp);font-weight:500;font-size:0.94rem;text-decoration:none;border:1px solid var(--border);transition:all 0.3s var(--ease);cursor:none;font-family:var(--body)}
+.btn-g:hover{color:var(--t);border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.04)}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 28px 80px;position:relative;overflow:hidden;text-align:center}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:drift linear infinite}
+.o1{width:600px;height:600px;background:radial-gradient(circle,rgba(109,40,217,0.5) 0%,transparent 70%);top:-240px;left:-120px;animation-duration:24s}
+.o2{width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.28) 0%,transparent 70%);top:-160px;right:-120px;animation-duration:30s;animation-direction:reverse}
+.o3{width:360px;height:360px;background:radial-gradient(circle,rgba(139,92,246,0.18) 0%,transparent 70%);bottom:-40px;left:44%;animation-duration:38s}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(36px,-36px) rotate(90deg)}50%{transform:translate(-18px,28px) rotate(180deg)}75%{transform:translate(22px,8px) rotate(270deg)}}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 78% 75% at 50% 50%,transparent 28%,black 100%);-webkit-mask-image:radial-gradient(ellipse 78% 75% at 50% 50%,transparent 28%,black 100%)}
+.hero-z{position:relative;z-index:2;max-width:860px}
+
+.h-eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:var(--rp);padding:7px 16px;font-family:var(--mono);font-size:0.7rem;color:var(--pl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:32px;opacity:0;transform:translateY(14px);animation:up 0.7s var(--ease) 0.3s forwards}
+.pdot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:pg 2s ease infinite}
+@keyframes pg{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(245,158,11,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+@keyframes up{to{opacity:1;transform:translateY(0)}}
+
+.h-title{font-family:var(--brand);font-weight:800;font-size:clamp(2.8rem,7vw,5.2rem);line-height:1.02;letter-spacing:-0.028em;margin-bottom:26px;opacity:0;transform:translateY(28px);animation:up 0.9s var(--ease) 0.5s forwards}
+.h-sub{font-size:clamp(1rem,1.8vw,1.18rem);color:var(--t2);max-width:600px;margin:0 auto 42px;line-height:1.78;font-weight:400;opacity:0;transform:translateY(18px);animation:up 0.8s var(--ease) 0.7s forwards}
+.h-ctas{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(16px);animation:up 0.7s var(--ease) 0.9s forwards}
+
+/* Mentor stat strip */
+.h-stats{display:flex;align-items:center;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap;opacity:0;animation:up 0.7s var(--ease) 1.1s forwards}
+.hs-item{text-align:center}
+.hs-val{font-family:var(--brand);font-weight:800;font-size:1.6rem;background:linear-gradient(135deg,var(--pl),var(--gl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hs-lab{font-size:0.78rem;color:var(--t3);margin-top:2px}
+.hs-div{width:1px;height:36px;background:var(--border)}
+
+/* Scroll cue */
+.scue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:up 0.6s var(--ease) 1.3s forwards}
+.scue span{font-family:var(--mono);font-size:0.6rem;color:var(--t4);letter-spacing:0.12em;text-transform:uppercase}
+.sline{width:1px;height:42px;background:linear-gradient(180deg,var(--p),transparent);animation:sl 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes sl{0%{transform:scaleY(0);opacity:1;transform-origin:top}50%{transform:scaleY(1);opacity:1;transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);opacity:0;transform-origin:bottom}}
+
+/* ══════════════════════════════
+   WHY MENTOR
+══════════════════════════════ */
+.why{padding:110px 28px;background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;margin-top:56px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.why-card{padding:44px 36px;background:var(--bg2);transition:background 0.3s;position:relative}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s}
+.wc1::before{background:linear-gradient(90deg,var(--p),transparent)}
+.wc2::before{background:linear-gradient(90deg,var(--g),transparent)}
+.wc3::before{background:linear-gradient(90deg,var(--pl),var(--gl))}
+.wc4::before{background:linear-gradient(90deg,var(--green),transparent)}
+.why-card:hover{background:var(--bg3)}
+.why-card:hover::before{opacity:1}
+.wc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.4rem}
+.wi1{background:rgba(139,92,246,0.12)}
+.wi2{background:rgba(245,158,11,0.12)}
+.wi3{background:rgba(167,139,250,0.12)}
+.wi4{background:rgba(74,222,128,0.12)}
+.wc-title{font-family:var(--brand);font-weight:700;font-size:1.18rem;margin-bottom:10px}
+.wc-desc{font-size:0.9rem;color:var(--t2);line-height:1.74}
+
+/* ══════════════════════════════
+   WHO WE'RE LOOKING FOR
+══════════════════════════════ */
+.who{padding:110px 28px}
+.who-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:0}
+.who-left{}
+.who-right{display:flex;flex-direction:column;gap:16px}
+.who-item{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:all 0.25s}
+.who-item:hover{border-color:var(--border-h);background:var(--card-h)}
+.wi-check{width:32px;height:32px;border-radius:50%;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--green);font-size:0.85rem;margin-top:2px}
+.wi-text{}
+.wi-title{font-weight:600;font-size:0.92rem;margin-bottom:3px}
+.wi-desc{font-size:0.82rem;color:var(--t3);line-height:1.5}
+
+/* Fields tags */
+.fields-wrap{margin-top:28px}
+.fields-label{font-family:var(--mono);font-size:0.62rem;color:var(--t3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px}
+.fields-tags{display:flex;gap:8px;flex-wrap:wrap}
+.ftag{background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.18);border-radius:var(--rp);padding:5px 14px;font-size:0.8rem;color:var(--pl)}
+
+/* ════════════════��═════════════
+   PROCESS
+══════════════════════════════ */
+.process{padding:110px 28px;background:var(--bg2)}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative}
+.process-steps::before{content:'';position:absolute;top:26px;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--pl),var(--border),transparent)}
+.ps-step{text-align:center;padding:0 24px}
+.ps-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--brand);font-weight:800;font-size:1rem;margin:0 auto 26px;position:relative;z-index:1;transition:all 0.3s;background:var(--card);border:1px solid var(--border)}
+.ps-num.lit{background:linear-gradient(135deg,var(--p),var(--pd));border-color:transparent;color:#fff;box-shadow:0 0 28px var(--pglow)}
+.ps-title{font-family:var(--brand);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+.ps-desc{font-size:0.87rem;color:var(--t2);line-height:1.72}
+.ps-time{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:0.62rem;color:var(--t4);letter-spacing:0.1em;text-transform:uppercase}
+
+/* ═══════════════════��══════════
+   MENTOR SPOTLIGHTS
+══════════════════════════════ */
+.spotlights{padding:110px 28px}
+.mentor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:48px}
+.mentor-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all 0.3s var(--ease);position:relative;overflow:hidden}
+.mentor-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(139,92,246,0.1),transparent 60%);opacity:0;transition:opacity 0.3s}
+.mentor-card:hover{border-color:var(--border-h);background:var(--card-h);transform:translateY(-4px)}
+.mentor-card:hover::before{opacity:1}
+.mc-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+.mc-av{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.a1{background:linear-gradient(135deg,#4C1D95,#7C3AED)}
+.a2{background:linear-gradient(135deg,#78350F,#B45309)}
+.a3{background:linear-gradient(135deg,#064E3B,#047857)}
+.mc-info{}
+.mc-name{font-family:var(--brand);font-weight:700;font-size:1rem;margin-bottom:2px}
+.mc-role{font-size:0.8rem;color:var(--t2)}
+.mc-quote{font-size:0.88rem;color:var(--t2);line-height:1.7;font-style:italic;padding:14px 16px;background:rgba(255,255,255,0.03);border-left:2px solid var(--p);border-radius:0 var(--rs) var(--rs) 0;margin-bottom:16px}
+.mc-tags{display:flex;gap:7px;flex-wrap:wrap}
+.mc-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:var(--rp);padding:3px 10px;font-size:0.72rem;color:var(--t2)}
+
+/* ══════════════��═══════════════
+   APPLICATION CTA
+══════════════════════════════ */
+.apply-sec{padding:80px 28px 110px;position:relative;overflow:hidden}
+.apply-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(109,40,217,0.1) 0%,transparent 65%);pointer-events:none}
+.apply-inner{max-width:760px;margin:0 auto;position:relative;z-index:2}
+.apply-card{background:var(--bg2);border:1px solid rgba(139,92,246,0.22);border-radius:24px;padding:56px 52px;text-align:center;position:relative;overflow:hidden}
+.apply-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),var(--g),transparent)}
+.apply-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:var(--rp);padding:6px 16px;font-family:var(--mono);font-size:0.68rem;color:var(--gl);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px}
+.apply-title{font-family:var(--brand);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:-0.024em;margin-bottom:14px}
+.apply-sub{color:var(--t2);font-size:1rem;line-height:1.76;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+.apply-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.apply-note{font-size:0.78rem;color:var(--t4)}
+.apply-perks{display:flex;justify-content:center;gap:32px;margin-top:32px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+.ap-item{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--t3)}
+.ap-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* ═══════════════���══════════════
+   TALLY EMBED MODAL
+══════════════════════════════ */
+#tally-modal{position:fixed;inset:0;background:rgba(7,7,15,0.92);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all 0.35s var(--ease)}
+#tally-modal.show{opacity:1;visibility:visible}
+.tm-panel{width:100%;max-width:680px;max-height:90vh;background:var(--bg2);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transform:translateY(24px);transition:transform 0.35s var(--ease)}
+#tally-modal.show .tm-panel{transform:translateY(0)}
+.tm-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0}
+.tm-title{font-family:var(--brand);font-weight:700;font-size:1rem}
+#tm-close{background:none;border:none;color:var(--t3);cursor:none;font-size:1.1rem;line-height:1;transition:color 0.2s;padding:4px 8px}
+#tm-close:hover{color:var(--t)}
+.tm-body{flex:1;overflow:hidden}
+.tm-body iframe{width:100%;height:100%;min-height:520px;border:none;display:block}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer{border-top:1px solid var(--border);padding:44px 28px;background:var(--bg2)}
+.fi{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px}
+.fbrand{font-family:var(--brand);font-weight:800;font-size:1rem;letter-spacing:0.2em;background:linear-gradient(135deg,var(--pl),var(--gl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.flinks{display:flex;gap:26px;list-style:none;flex-wrap:wrap}
+.flinks a{color:var(--t3);text-decoration:none;font-size:0.82rem;transition:color 0.25s}
+.flinks a:hover{color:var(--t2)}
+.fcopy{font-size:0.76rem;color:var(--t4)}
+
+/* ══════════��═══════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .who-wrap{grid-template-columns:1fr;gap:48px}
+  .process-steps{grid-template-columns:1fr;gap:32px}
+  .process-steps::before{display:none}
+  .apply-card{padding:36px 28px}
+}
+@media(max-width:768px){
+  .nlinks{display:none}
+  .h-stats{gap:20px}
+  .hs-div{display:none}
+  #cur,#crf{display:none}
+  body{cursor:auto}
+  a,button{cursor:pointer}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="crf"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <div class="ni">
+    <a href="index.html" class="nlogo">
+      <svg width="30" height="26" viewBox="0 0 36 30" fill="none">
+        <circle cx="18" cy="4" r="3.2" fill="#F59E0B"/>
+        <circle cx="6" cy="26" r="3.2" fill="#8B5CF6"/>
+        <circle cx="30" cy="26" r="3.2" fill="#8B5CF6"/>
+        <line x1="18" y1="7.2" x2="6" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+        <line x1="18" y1="7.2" x2="30" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+        <line x1="6" y1="26" x2="30" y2="26" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+      </svg>
+      <span class="nlogo-t">JOSEPH</span>
+    </a>
+    <ul class="nlinks">
+      <li><a href="index.html#mentors">Find a Mentor</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#apply" class="nbtn">Apply to Mentor</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+
+  <div class="hero-z">
+    <div class="h-eyebrow"><span class="pdot"></span>Joseph Mentors · Now Accepting Applications</div>
+
+    <h1 class="h-title">
+      Be the mentor<br>
+      <span class="gt">you wish you had.</span>
+    </h1>
+
+    <p class="h-sub">
+      You've built something real. You know what it took — the wrong turns, the right rooms, the people who changed everything. A young person somewhere needs exactly what you carry. Give them a shorter path.
+    </p>
+
+    <div class="h-ctas">
+      <button class="btn-p" onclick="openTally()">
+        Apply to Become a Mentor
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <a href="#what-to-expect" class="btn-g">See how it works</a>
+    </div>
+
+    <div class="h-stats">
+      <div class="hs-item"><div class="hs-val">2–4</div><div class="hs-lab">hrs/month minimum</div></div>
+      <div class="hs-div"></div>
+      <div class="hs-item"><div class="hs-val">Free</div><div class="hs-lab">to apply & onboard</div></div>
+      <div class="hs-div"></div>
+      <div class="hs-item"><div class="hs-val">You set</div><div class="hs-lab">your own rate</div></div>
+      <div class="hs-div"></div>
+      <div class="hs-item"><div class="hs-val">15 min</div><div class="hs-lab">onboarding call</div></div>
+    </div>
+  </div>
+
+  <div class="scue"><div class="sline"></div><span>Scroll</span></div>
+</section>
+
+<!-- ══ WHY MENTOR ══ -->
+<section class="why">
+  <div class="con">
+    <div class="rv" style="text-align:center">
+      <div class="stag" style="justify-content:center">Why Mentor</div>
+      <h2 class="sh" style="text-align:center">More than <span class="gt">giving back</span></h2>
+      <p class="ss" style="text-align:center;max-width:520px;margin:0 auto">Mentoring on Joseph is intentional, flexible, and genuinely rewarding — for you as much as for the person you guide.</p>
+    </div>
+    <div class="why-grid rv d1" style="margin-top:48px">
+      <div class="why-card wc1">
+        <div class="wc-icon wi1">🎯</div>
+        <div class="wc-title">Shape the Next Generation</div>
+        <p class="wc-desc">The young people on Joseph aren't looking for a transaction — they're looking for direction. Your story, your failures, your wins are exactly what they need to hear. One conversation can change a life's trajectory.</p>
+      </div>
+      <div class="why-card wc2">
+        <div class="wc-icon wi2">💰</div>
+        <div class="wc-title">Earn on Your Terms</div>
+        <p class="wc-desc">Set your own session rate. Joseph takes 15% — you keep 85%. Volunteer your time when you want, charge when you don't. No pressure, no quotas. Your availability, your schedule, your rules.</p>
+      </div>
+      <div class="why-card wc3">
+        <div class="wc-icon wi3">🏆</div>
+        <div class="wc-title">Build Your Reputation</div>
+        <p class="wc-desc">Founding Mentor badge. Featured spotlights on the platform. Speaking invitations to Joseph Talks and Build Weekends. Mentoring here is a visible investment in your personal brand and legacy.</p>
+      </div>
+      <div class="why-card wc4">
+        <div class="wc-icon wi4">🔗</div>
+        <div class="wc-title">Join a Movement</div>
+        <p class="wc-desc">Joseph isn't a marketplace — it's a movement. You're not just listing your calendar. You're joining a community of professionals who believe the next generation deserves more than algorithms and luck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHO WE'RE LOOKING FOR ══ -->
+<section class="sec who" id="who">
+  <div class="con">
+    <div class="who-wrap">
+      <div class="who-left rv">
+        <div class="stag">Who Qualifies</div>
+        <h2 class="sh">We're looking for people<br>who've <span class="gt">been in the room.</span></h2>
+        <p class="ss">You don't need a PhD or a TED talk. You need experience, wisdom, and a genuine desire to help someone else navigate faster. If that's you — we want you.</p>
+        <div class="fields-wrap">
+          <div class="fields-label">Open to all fields</div>
+          <div class="fields-tags">
+            <span class="ftag">Technology</span>
+            <span class="ftag">Business</span>
+            <span class="ftag">Creative</span>
+            <span class="ftag">Healthcare</span>
+            <span class="ftag">Finance</span>
+            <span class="ftag">Law & Policy</span>
+            <span class="ftag">Education</span>
+            <span class="ftag">Entrepreneurship</span>
+            <span class="ftag">Arts & Media</span>
+            <span class="ftag">Non-Profit</span>
+          </div>
+        </div>
+        <div style="margin-top:32px">
+          <button class="btn-p" onclick="openTally()">Apply Now →</button>
+        </div>
+      </div>
+      <div class="who-right rv d2">
+        <div class="who-item">
+          <div class="wi-check">✓</div>
+          <div class="wi-text">
+            <div class="wi-title">3+ years of professional experience</div>
+            <div class="wi-desc">In any field. What matters is that you've walked a path a young person needs to see.</div>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="wi-check">✓</div>
+          <div class="wi-text">
+            <div class="wi-title">Available 2–4 hours per month</div>
+            <div class="wi-desc">That's one session a week — or two longer conversations a month. Flexible to your life.</div>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="wi-check">✓</div>
+          <div class="wi-text">
+            <div class="wi-title">Mission-aligned</div>
+            <div class="wi-desc">You believe young people deserve real guidance — not just a search bar and a LinkedIn profile to cold-message.</div>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="wi-check">✓</div>
+          <div class="wi-text">
+            <div class="wi-title">Willing to be vetted</div>
+            <div class="wi-desc">A short values-alignment call. We protect the quality of every experience — for mentors and mentees alike.</div>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="wi-check">✓</div>
+          <div class="wi-text">
+            <div class="wi-title">Ready to show up consistently</div>
+            <div class="wi-desc">The most important thing isn't your resume — it's your reliability. Young people need people who keep their word.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section class="process sec" id="what-to-expect">
+  <div class="con">
+    <div class="rv" style="text-align:center">
+      <div class="stag" style="justify-content:center">The Process</div>
+      <h2 class="sh" style="text-align:center">Three steps from <span class="gt">application to live</span></h2>
+      <p class="ss" style="text-align:center;max-width:480px;margin:0 auto">We keep it simple. No long bureaucratic process — just enough to make sure every match is the right one.</p>
+    </div>
+    <div class="process-steps">
+      <div class="ps-step rv d1">
+        <div class="ps-num lit">01</div>
+        <div class="ps-title">Apply</div>
+        <p class="ps-desc">Fill out a short application — your background, expertise, why Joseph resonates with you, and your availability. Takes about 5 minutes.</p>
+        <span class="ps-time">~5 min</span>
+      </div>
+      <div class="ps-step rv d2">
+        <div class="ps-num">02</div>
+        <div class="ps-title">15-Min Call</div>
+        <p class="ps-desc">A quick values-alignment conversation with the Joseph team. Not an interview — just making sure we're building something together, not just filling a slot.</p>
+        <span class="ps-time">~15 min</span>
+      </div>
+      <div class="ps-step rv d3">
+        <div class="ps-num">03</div>
+        <div class="ps-title">Profile Live</div>
+        <p class="ps-desc">We build your mentor profile together — bio, expertise tags, availability, rate. Once approved, you're live and mentees can book their first session with you.</p>
+        <span class="ps-time">1–3 days</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MENTOR SPOTLIGHTS ══ -->
+<section class="sec spotlights">
+  <div class="con">
+    <div class="rv">
+      <div class="stag">Founding Mentors</div>
+      <h2 class="sh">People already <span class="gt">showing up</span></h2>
+      <p class="ss">A few of our founding mentors — the professionals who believed in this before it had a track record.</p>
+    </div>
+    <div class="mentor-grid">
+      <div class="mentor-card rv d1">
+        <div class="mc-top">
+          <div class="mc-av a1">AT</div>
+          <div class="mc-info">
+            <div class="mc-name">Aisha Thompson</div>
+            <div class="mc-role">VP of Product · Google</div>
+          </div>
+        </div>
+        <div class="mc-quote">"I spent my 20s wishing someone would just tell me what I was looking at. I mentor on Joseph so someone else doesn't have to figure it out the hard way."</div>
+        <div class="mc-tags"><span class="mc-tag">Product Strategy</span><span class="mc-tag">Tech Careers</span><span class="mc-tag">Leadership</span></div>
+      </div>
+      <div class="mentor-card rv d2">
+        <div class="mc-top">
+          <div class="mc-av a2">MR</div>
+          <div class="mc-info">
+            <div class="mc-name">Marcus Rivera</div>
+            <div class="mc-role">Creative Director · Nike</div>
+          </div>
+        </div>
+        <div class="mc-quote">"The creative industry is full of gatekeeping. I mentor because talent shouldn't be stopped by access. If you've got it, I want to help you get in the room."</div>
+        <div class="mc-tags"><span class="mc-tag">Branding</span><span class="mc-tag">Design Thinking</span><span class="mc-tag">Storytelling</span></div>
+      </div>
+      <div class="mentor-card rv d3">
+        <div class="mc-top">
+          <div class="mc-av a3">PN</div>
+          <div class="mc-info">
+            <div class="mc-name">Dr. Priya Nair</div>
+            <div class="mc-role">Founder · HealthBridge</div>
+          </div>
+        </div>
+        <div class="mc-quote">"I built my company without a single mentor. I know exactly what that costs. Two hours a month is nothing compared to what it gives someone who's just starting out."</div>
+        <div class="mc-tags"><span class="mc-tag">Entrepreneurship</span><span class="mc-tag">Healthcare</span><span class="mc-tag">Impact</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPLICATION CTA ══ -->
+<section class="apply-sec" id="apply">
+  <div class="apply-inner">
+    <div class="apply-card rv">
+      <div class="apply-badge">⚡ Founding Mentor Applications Open</div>
+      <h2 class="apply-title">Your story belongs<br><span class="gt">in someone's future.</span></h2>
+      <p class="apply-sub">The first 50 mentors who join Joseph become Founding Mentors — permanently featured, first to be matched with mentees, and first invited to Joseph Talks and events.</p>
+      <div class="apply-ctas">
+        <button class="btn-p" onclick="openTally()">
+          Apply Now — Takes 5 Minutes
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="apply-note">Free to apply · No commitment until your profile goes live · You control your availability</p>
+      <div class="apply-perks">
+        <div class="ap-item"><span class="ap-dot"></span>Founding Mentor badge</div>
+        <div class="ap-item"><span class="ap-dot"></span>Featured profile</div>
+        <div class="ap-item"><span class="ap-dot"></span>Speaking invitations</div>
+        <div class="ap-item"><span class="ap-dot"></span>Mentor community access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="fi">
+    <div class="fbrand">JOSEPH</div>
+    <ul class="flinks">
+      <li><a href="index.html#mentors">Find a Mentor</a></li>
+      <li><a href="Course.html">Courses</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+    <div class="fcopy">© 2026 Joseph. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ══ TALLY MODAL ══ -->
+<div id="tally-modal">
+  <div class="tm-panel">
+    <div class="tm-head">
+      <div class="tm-title">Mentor Application · Joseph</div>
+      <button id="tm-close" onclick="closeTally()">✕</button>
+    </div>
+    <div class="tm-body">
+      <iframe src="https://tally.so/embed/gDNkWO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" title="Joseph Mentor Application"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Tally modal ──
+function openTally() {
+  document.getElementById('tally-modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeTally() {
+  document.getElementById('tally-modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.getElementById('tally-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('tally-modal')) closeTally();
+});
+
+// ── Nav ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 40));
+
+// ── Scroll reveal ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+// ── Cursor ──
+const cur = document.getElementById('cur');
+const crf = document.getElementById('crf');
+let mx=0,my=0,fx=0,fy=0;
+if (cur) {
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+  });
+  (function loop(){
+    fx+=(mx-fx)*0.12; fy+=(my-fy)*0.12;
+    crf.style.left=fx+'px'; crf.style.top=fy+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,.mentor-card,.who-item,.why-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.width='16px'; cur.style.height='16px'; cur.style.background='var(--g)';
+      crf.style.width='50px'; crf.style.height='50px'; crf.style.borderColor='rgba(245,158,11,0.4)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.width='10px'; cur.style.height='10px'; cur.style.background='var(--p)';
+      crf.style.width='34px'; crf.style.height='34px'; crf.style.borderColor='rgba(139,92,246,0.45)';
+    });
+  });
+}
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
