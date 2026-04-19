@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JOSEPH — Connect with expert mentors, discover your potential, and build the future you were made for.">
-    <title>JOSEPH — Mentorship for the Next Generation</title>
+    <meta name="description" content="HENCEWARD — Connect with expert mentors, discover your potential, and build the future you were made for.">
+    <title>HENCEWARD — Mentorship for the Next Generation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -624,7 +624,7 @@
 
 <!-- Loader -->
 <div id="loader">
-    <div class="ld-word">JOSEPH</div>
+    <div class="ld-word">HENCEWARD</div>
     <div class="ld-bar"></div>
 </div>
 
@@ -640,7 +640,7 @@
                 <line x1="18" y1="7.2" x2="30" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
                 <line x1="6"  y1="26"  x2="30" y2="26"   stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
             </svg>
-            <span class="nlogo-t">JOSEPH</span>
+            <span class="nlogo-t">HENCEWARD</span>
         </a>
         <ul class="nlinks">
             <li><a href="#mentors">Mentors</a></li>
@@ -1005,7 +1005,7 @@
 <!-- Footer -->
 <footer>
     <div class="fi">
-        <div class="fbrand">JOSEPH</div>
+        <div class="fbrand">HENCEWARD</div>
         <ul class="flinks">
             <li><a href="#mentors">Mentors</a></li>
             <li><a href="#courses">Courses</a></li>
@@ -1075,14 +1075,21 @@ document.querySelectorAll('.ftab').forEach(btn=>{
 function handleWL(e){
     e.preventDefault();
     const btn=document.getElementById('wlBtn');
+    const email=document.getElementById('wlEmail').value;
+    mcSubscribe(email,'');
     btn.textContent="You're in!";
     btn.style.background='linear-gradient(135deg,#059669,#047857)';
     btn.style.boxShadow='0 0 30px rgba(5,150,105,0.4)';
     document.getElementById('wlEmail').value='';
-    setTimeout(()=>{
-        btn.textContent='Join Free';
-        btn.style.background=''; btn.style.boxShadow='';
-    },4000);
+    setTimeout(()=>{ btn.textContent='Join Free'; btn.style.background=''; btn.style.boxShadow=''; },4000);
+}
+function mcSubscribe(email,fname){
+    const cb='mc_'+Date.now();
+    window[cb]=d=>{delete window[cb];};
+    const q=`u=0903e2fb62cb25d97325b87b9&id=00388b3ee6&EMAIL=${encodeURIComponent(email)}&FNAME=${encodeURIComponent(fname||'')}&b_0903e2fb62cb25d97325b87b9_00388b3ee6=&c=${cb}`;
+    const s=document.createElement('script');
+    s.src=`https://gmail.us9.list-manage.com/subscribe/post-json?${q}`;
+    document.body.appendChild(s);
 }
 
 // Smooth scroll

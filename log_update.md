@@ -5,7 +5,7 @@
 
 ---
 
-## STATUS: Course 101 Live · Dual Funnel Strategy Defined · Building Mentor Pipeline
+## STATUS: Rebranded to HENCEWARD · Mailchimp Live · mentors.html Built · Course 101 Live
 
 GitHub repo: https://github.com/VictorKilanko/joseph
 Live site: https://victorkilanko.github.io/joseph/
@@ -52,9 +52,9 @@ Domain to register: `josephmovement.com` (confirmed available)
 
 ### Immediate Next Steps (Start Here — In Priority Order)
 
-- [ ] **1. Register `josephmovement.com`** — ~$12/yr on Namecheap or GoDaddy. Most urgent — makes the site shareable and professional.
-- [ ] **2. Connect domain to GitHub Pages** — Repo → Settings → Pages → Custom domain → enter `josephmovement.com`. Add CNAME record at registrar pointing to `victorkilanko.github.io`.
-- [ ] **3. Wire email capture to Mailchimp** — Free up to 500 contacts. Hook Course 101 gate + homepage waitlist into Mailchimp. Email list = the actual business asset.
+- [ ] **1. Register `henceward.com`** — Check availability first. If taken, try henceward.co or henceward.app. — ~$12/yr on Namecheap or GoDaddy. Most urgent — makes the site shareable and professional.
+- [ ] **2. Connect domain to GitHub Pages** — Repo → Settings → Pages → Custom domain → enter `henceward.com`. Add CNAME record at registrar pointing to `victorkilanko.github.io`.
+- [x] **3. Wire email capture to Mailchimp** — Course 101 gate + homepage waitlist both submit via JSONP to Henceward Mailchimp audience. Safe, no API key in frontend. — Free up to 500 contacts. Hook Course 101 gate + homepage waitlist into Mailchimp. Email list = the actual business asset.
 - [ ] **4. Build `mentors.html`** — "Become a Mentor" landing page (NOT a browse page). Emotional hook, mentor value props, who qualifies, Tally.so application form embedded. Top of mentor funnel.
 - [ ] **5. Add "Become a Mentor" CTA to homepage nav + hero** — Dual audience design: one path for mentees, one for mentors. See Plan.md §11.
 - [ ] **6. Build Tally.so mentor application form** — Name, LinkedIn, role, expertise, why Joseph, availability, rate. Free, no-code, beautiful.

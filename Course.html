@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course 101 — Identity | JOSEPH</title>
+<title>Course 101 — Identity | HENCEWARD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -314,7 +314,7 @@ body::before{content:'';position:fixed;inset:0;opacity:0.022;background-image:ur
     </button>
     <a href="index.html" class="cn-logo">
       <svg width="24" height="21" viewBox="0 0 36 30" fill="none"><circle cx="18" cy="4" r="3.2" fill="#F59E0B"/><circle cx="6" cy="26" r="3.2" fill="#8B5CF6"/><circle cx="30" cy="26" r="3.2" fill="#8B5CF6"/><line x1="18" y1="7.2" x2="6" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/><line x1="18" y1="7.2" x2="30" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/><line x1="6" y1="26" x2="30" y2="26" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/></svg>
-      <span class="cn-logo-t">JOSEPH</span>
+      <span class="cn-logo-t">HENCEWARD</span>
     </a>
     <div class="cn-divider"></div>
     <span class="cn-course">Course 101 — Identity</span>
@@ -1077,9 +1077,19 @@ document.getElementById('gateForm').addEventListener('submit', e => {
   state.name = document.getElementById('gateName').value.trim();
   state.email = document.getElementById('gateEmail').value.trim();
   save();
+  mcSubscribe(state.email, state.name);
   closeGate(true);
   document.getElementById('cert-name').textContent = state.name;
 });
+
+function mcSubscribe(email, fname) {
+  const cb = 'mc_' + Date.now();
+  window[cb] = d => { delete window[cb]; };
+  const q = `u=0903e2fb62cb25d97325b87b9&id=00388b3ee6&EMAIL=${encodeURIComponent(email)}&FNAME=${encodeURIComponent(fname||'')}&b_0903e2fb62cb25d97325b87b9_00388b3ee6=&c=${cb}`;
+  const s = document.createElement('script');
+  s.src = `https://gmail.us9.list-manage.com/subscribe/post-json?${q}`;
+  document.body.appendChild(s);
+}
 
 function closeGate(animate) {
   const gate = document.getElementById('gate');

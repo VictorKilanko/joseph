@@ -22,8 +22,8 @@
 ## 2. Brand Identity
 
 ### Name & Tagline
-- **Platform Name**: **JOSEPH**
-- **Domain**: `josephmovement.com` (available, no conflicts — register immediately)
+- **Platform Name**: **HENCEWARD**
+- **Domain**: `henceward.com` (check availability — register immediately)
 - **Hero Headline**: *"Stop figuring it out alone."*
 - **Sub-tagline**: *"A movement for the next generation of nation builders."*
 - **Note**: Original tagline "Find Your Gift. Build Your World." retired from homepage — too abstract, no clear mechanism. Moved to inner pages / About.
