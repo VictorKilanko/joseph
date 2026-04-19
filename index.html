@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JOSEPH — Connect with expert mentors, discover your potential, and build the future you were made for.">
+    <title>JOSEPH — Mentorship for the Next Generation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307070F'/><circle cx='16' cy='5' r='3.5' fill='%23F59E0B'/><circle cx='5' cy='27' r='3.5' fill='%238B5CF6'/><circle cx='27' cy='27' r='3.5' fill='%238B5CF6'/><line x1='16' y1='8.5' x2='5' y2='23.5' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/><line x1='16' y1='8.5' x2='27' y2='23.5' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/><line x1='5' y1='27' x2='27' y2='27' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/></svg>">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:       #07070F;
+            --bg2:      #0C0C1A;
+            --bg3:      #101020;
+            --card:     rgba(255,255,255,0.03);
+            --card-h:   rgba(255,255,255,0.055);
+            --border:   rgba(255,255,255,0.07);
+            --border-h: rgba(139,92,246,0.38);
+
+            --p:        #8B5CF6;
+            --pl:       #A78BFA;
+            --pd:       #6D28D9;
+            --pglow:    rgba(139,92,246,0.28);
+
+            --g:        #F59E0B;
+            --gl:       #FCD34D;
+            --gglow:    rgba(245,158,11,0.28);
+
+            --t:        #FFFFFF;
+            --t2:       #9CA3AF;
+            --t3:       #4B5563;
+            --t4:       #374151;
+
+            --brand:    'Syne', sans-serif;
+            --body:     'Outfit', sans-serif;
+            --mono:     'JetBrains Mono', monospace;
+
+            --r:  16px;
+            --rs: 10px;
+            --rp: 100px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--t);
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Noise texture ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px;
+            pointer-events: none;
+            z-index: 9997;
+        }
+
+        /* ── Custom cursor ── */
+        #cur, #crf {
+            position: fixed; top:0; left:0;
+            pointer-events: none; z-index:9999;
+            transform: translate(-50%,-50%);
+            transition-property: width,height,background,border-color;
+            transition-duration: 0.2s;
+        }
+        #cur { width:10px; height:10px; background:var(--p); border-radius:50%; }
+        #crf { width:34px; height:34px; border:1px solid rgba(139,92,246,0.45); border-radius:50%; transition-duration:0.3s; }
+
+        /* ── Loader ── */
+        #loader {
+            position:fixed; inset:0;
+            background:var(--bg); z-index:10000;
+            display:flex; flex-direction:column;
+            align-items:center; justify-content:center;
+            transition: opacity 0.9s var(--ease), visibility 0.9s;
+        }
+        #loader.out { opacity:0; visibility:hidden; }
+        .ld-word {
+            font-family:var(--brand); font-weight:800;
+            font-size: clamp(2.8rem,8vw,5.5rem);
+            letter-spacing:0.32em;
+            background:linear-gradient(135deg,var(--pl),var(--gl));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+            opacity:0; transform:translateY(18px);
+            animation: up 0.75s var(--ease) 0.4s forwards;
+        }
+        .ld-bar {
+            height:2px; width:0;
+            background:linear-gradient(90deg,var(--p),var(--g));
+            margin-top:18px; border-radius:2px;
+            animation: bar 0.9s var(--ease) 1s forwards;
+        }
+        @keyframes up  { to{ opacity:1; transform:translateY(0); } }
+        @keyframes bar { to{ width:200px; } }
+
+        /* ── Nav ── */
+        nav {
+            position:fixed; top:0; left:0; right:0; z-index:1000;
+            padding:22px 0;
+            transition: padding 0.3s var(--ease), background 0.3s, border-color 0.3s;
+        }
+        nav.on {
+            padding:13px 0;
+            background:rgba(7,7,15,0.88);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border-bottom:1px solid var(--border);
+        }
+        .ni {
+            max-width:1160px; margin:0 auto;
+            padding:0 28px;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+        .nlogo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+        .nlogo-t {
+            font-family:var(--brand); font-weight:800;
+            font-size:1rem; letter-spacing:0.2em; color:var(--t);
+        }
+        .nlinks { display:flex; align-items:center; gap:34px; list-style:none; }
+        .nlinks a {
+            color:var(--t2); text-decoration:none;
+            font-size:0.875rem; font-weight:500; letter-spacing:0.02em;
+            transition:color 0.25s;
+        }
+        .nlinks a:hover { color:var(--t); }
+        .nbtn {
+            background:var(--p) !important; color:#fff !important;
+            padding:9px 22px !important; border-radius:var(--rp) !important;
+            font-weight:600 !important; font-size:0.86rem !important;
+            box-shadow:0 0 22px var(--pglow);
+            transition:all 0.25s !important;
+        }
+        .nbtn:hover { transform:translateY(-1px); box-shadow:0 0 40px var(--pglow) !important; }
+
+        /* ── Hero ── */
+        .hero {
+            min-height:100vh;
+            display:flex; flex-direction:column;
+            align-items:center; justify-content:center;
+            padding:140px 28px 80px;
+            position:relative; overflow:hidden; text-align:center;
+        }
+
+        .orb {
+            position:absolute; border-radius:50%;
+            filter:blur(100px); pointer-events:none;
+            animation:drift linear infinite;
+        }
+        .o1 { width:640px;height:640px; background:radial-gradient(circle,rgba(109,40,217,0.5) 0%,transparent 70%); top:-260px;left:-160px; animation-duration:24s; }
+        .o2 { width:520px;height:520px; background:radial-gradient(circle,rgba(245,158,11,0.3) 0%,transparent 70%); top:-180px;right:-140px; animation-duration:30s;animation-direction:reverse; }
+        .o3 { width:380px;height:380px; background:radial-gradient(circle,rgba(139,92,246,0.2) 0%,transparent 70%); bottom:-60px;left:42%; animation-duration:38s; }
+
+        @keyframes drift {
+            0%,100%{ transform:translate(0,0) rotate(0deg); }
+            25%    { transform:translate(36px,-36px) rotate(90deg); }
+            50%    { transform:translate(-18px,28px) rotate(180deg); }
+            75%    { transform:translate(22px,8px) rotate(270deg); }
+        }
+
+        /* dot grid */
+        .hero::after {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px);
+            background-size:52px 52px;
+            mask-image:radial-gradient(ellipse 78% 75% at 50% 50%,transparent 28%,black 100%);
+            -webkit-mask-image:radial-gradient(ellipse 78% 75% at 50% 50%,transparent 28%,black 100%);
+        }
+
+        .hero-z { position:relative; z-index:2; max-width:820px; }
+
+        .h-eyebrow {
+            display:inline-flex; align-items:center; gap:9px;
+            background:rgba(139,92,246,0.08);
+            border:1px solid rgba(139,92,246,0.2);
+            border-radius:var(--rp);
+            padding:7px 16px;
+            font-family:var(--mono); font-size:0.7rem;
+            color:var(--pl); letter-spacing:0.12em; text-transform:uppercase;
+            margin-bottom:32px;
+            opacity:0; transform:translateY(14px);
+            animation: up 0.7s var(--ease) 2s forwards;
+        }
+        .pdot { width:6px;height:6px; background:var(--g); border-radius:50%; animation:pg 2s ease infinite; }
+        @keyframes pg { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(245,158,11,0.5);} 50%{opacity:.6;box-shadow:0 0 0 5px rgba(245,158,11,0);} }
+
+        .h-title {
+            font-family:var(--brand); font-weight:800;
+            font-size:clamp(3rem,8vw,5.6rem);
+            line-height:1.02; letter-spacing:-0.028em;
+            margin-bottom:26px;
+            opacity:0; transform:translateY(28px);
+            animation: up 0.9s var(--ease) 2.1s forwards;
+        }
+        .ht1 { display:block; color:var(--t); }
+        .ht2 {
+            display:block;
+            background:linear-gradient(135deg,var(--pl) 0%,var(--gl) 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        .h-sub {
+            font-size:clamp(1rem,1.8vw,1.14rem);
+            color:var(--t2); max-width:560px; margin:0 auto 42px;
+            line-height:1.78; font-weight:400;
+            opacity:0; transform:translateY(18px);
+            animation: up 0.8s var(--ease) 2.3s forwards;
+        }
+
+        .h-ctas {
+            display:flex; align-items:center; justify-content:center;
+            gap:14px; flex-wrap:wrap;
+            opacity:0; transform:translateY(16px);
+            animation: up 0.7s var(--ease) 2.5s forwards;
+        }
+
+        .btn-p {
+            display:inline-flex; align-items:center; gap:8px;
+            background:linear-gradient(135deg,var(--p),var(--pd));
+            color:#fff; padding:14px 28px; border-radius:var(--rp);
+            font-weight:600; font-size:0.94rem; text-decoration:none;
+            border:none;
+            box-shadow:0 0 32px var(--pglow), inset 0 1px 0 rgba(255,255,255,0.12);
+            transition:all 0.3s var(--ease);
+        }
+        .btn-p:hover { transform:translateY(-3px); box-shadow:0 0 56px var(--pglow),0 12px 36px rgba(109,40,217,0.4),inset 0 1px 0 rgba(255,255,255,0.12); }
+
+        .btn-g {
+            display:inline-flex; align-items:center; gap:8px;
+            background:transparent; color:var(--t2);
+            padding:14px 28px; border-radius:var(--rp);
+            font-weight:500; font-size:0.94rem; text-decoration:none;
+            border:1px solid var(--border);
+            transition:all 0.3s var(--ease);
+        }
+        .btn-g:hover { color:var(--t); border-color:rgba(255,255,255,0.18); background:rgba(255,255,255,0.04); }
+
+        /* mentor avatar strip in hero */
+        .h-mentors {
+            display:flex; align-items:center; justify-content:center;
+            gap:12px; margin-top:52px; flex-wrap:wrap;
+            opacity:0; animation: up 0.7s var(--ease) 2.7s forwards;
+        }
+        .av-stack { display:flex; }
+        .av-stack .av { margin-left:-12px; border:2px solid var(--bg); }
+        .av-stack .av:first-child { margin-left:0; }
+
+        .av {
+            width:42px; height:42px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-weight:700; font-size:0.78rem; letter-spacing:0.02em;
+            flex-shrink:0;
+        }
+        .a1{background:linear-gradient(135deg,#4C1D95,#7C3AED);}
+        .a2{background:linear-gradient(135deg,#78350F,#B45309);}
+        .a3{background:linear-gradient(135deg,#064E3B,#047857);}
+        .a4{background:linear-gradient(135deg,#1E3A5F,#1D4ED8);}
+        .a5{background:linear-gradient(135deg,#831843,#BE185D);}
+        .a6{background:linear-gradient(135deg,#292524,#57534E);}
+
+        .h-m-label { font-size:0.84rem; color:var(--t2); }
+        .h-m-label strong { color:var(--t); font-weight:600; }
+
+        /* scroll cue */
+        .scue {
+            position:absolute; bottom:32px; left:50%;
+            transform:translateX(-50%);
+            display:flex; flex-direction:column;
+            align-items:center; gap:8px;
+            opacity:0; animation: up 0.6s var(--ease) 3s forwards;
+        }
+        .scue span { font-family:var(--mono); font-size:0.6rem; color:var(--t4); letter-spacing:0.12em; text-transform:uppercase; }
+        .sline { width:1px;height:42px; background:linear-gradient(180deg,var(--p),transparent); animation:sl 1.8s ease-in-out infinite; transform-origin:top; }
+        @keyframes sl { 0%{transform:scaleY(0);opacity:1;transform-origin:top;} 50%{transform:scaleY(1);opacity:1;transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0);opacity:0;transform-origin:bottom;} }
+
+        /* ── Trust bar ── */
+        .trust {
+            border-top:1px solid var(--border);
+            border-bottom:1px solid var(--border);
+            background:var(--bg2);
+            padding:18px 28px;
+        }
+        .trust-in {
+            max-width:1160px; margin:0 auto;
+            display:flex; align-items:center; justify-content:center;
+            gap:40px; flex-wrap:wrap;
+        }
+        .trust-item { display:flex; align-items:center; gap:10px; }
+        .trust-item span { font-size:0.84rem; color:var(--t2); }
+        .trust-item strong { color:var(--t); font-weight:600; }
+        .trust-div { width:1px; height:24px; background:var(--border); }
+
+        /* ── How it works ── */
+        .hiw { padding:110px 28px; background:var(--bg2); }
+        .hiw-in { max-width:1160px; margin:0 auto; }
+        .hiw-steps {
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:40px; margin-top:56px;
+            position:relative;
+        }
+        .hiw-steps::before {
+            content:''; position:absolute;
+            top:26px; left:14%; right:14%; height:1px;
+            background:linear-gradient(90deg,transparent,var(--border),var(--pl),var(--border),transparent);
+        }
+        .hw-step { text-align:center; padding:0 12px; }
+        .hw-n {
+            width:52px; height:52px; border-radius:50%;
+            background:var(--card); border:1px solid var(--border);
+            display:flex; align-items:center; justify-content:center;
+            font-family:var(--brand); font-weight:800; font-size:1rem;
+            margin:0 auto 26px; position:relative; z-index:1;
+            transition:all 0.3s;
+        }
+        .hw-n.lit {
+            background:linear-gradient(135deg,var(--p),var(--pd));
+            border-color:transparent; color:#fff;
+            box-shadow:0 0 28px var(--pglow);
+        }
+        .hw-title { font-family:var(--brand); font-weight:700; font-size:1.1rem; margin-bottom:10px; }
+        .hw-desc  { font-size:0.88rem; color:var(--t2); line-height:1.72; }
+
+        /* ── Sections shared ── */
+        .sec { padding:110px 28px; }
+        .con { max-width:1160px; margin:0 auto; }
+
+        .stag {
+            display:inline-flex; align-items:center; gap:10px;
+            font-family:var(--mono); font-size:0.68rem;
+            color:var(--pl); letter-spacing:0.16em; text-transform:uppercase;
+            margin-bottom:16px;
+        }
+        .stag::before { content:''; width:16px; height:1px; background:var(--p); }
+
+        .sh {
+            font-family:var(--brand); font-weight:800;
+            font-size:clamp(1.9rem,4vw,2.8rem);
+            line-height:1.12; letter-spacing:-0.024em;
+            margin-bottom:14px;
+        }
+        .ss { font-size:1rem; color:var(--t2); max-width:480px; line-height:1.76; }
+
+        .gt {
+            background:linear-gradient(135deg,var(--pl),var(--gl));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        /* ── Mentors ── */
+        .mentors-sec { padding:110px 28px; }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display:flex; gap:10px; flex-wrap:wrap;
+            margin-top:44px; margin-bottom:36px;
+        }
+        .ftab {
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:var(--rp);
+            padding:8px 18px;
+            font-size:0.82rem; font-weight:500;
+            color:var(--t2); cursor:none;
+            transition:all 0.25s;
+        }
+        .ftab:hover { color:var(--t); border-color:rgba(255,255,255,0.16); }
+        .ftab.active {
+            background:rgba(139,92,246,0.14);
+            border-color:rgba(139,92,246,0.35);
+            color:var(--pl);
+        }
+
+        /* Mentor grid */
+        .mgrid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(248px,1fr));
+            gap:16px;
+        }
+
+        .mcard {
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:var(--r);
+            padding:28px;
+            transition:all 0.3s var(--ease);
+            position:relative; overflow:hidden;
+            cursor:none;
+        }
+        .mcard::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(circle at 20% 0%,rgba(139,92,246,0.12),transparent 60%);
+            opacity:0; transition:opacity 0.3s;
+        }
+        .mcard:hover { border-color:var(--border-h); background:var(--card-h); transform:translateY(-4px); }
+        .mcard:hover::before { opacity:1; }
+
+        .mc-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:16px; }
+        .mc-av { width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; flex-shrink:0; }
+        .mc-avail { display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:0.62rem; color:#4ADE80; letter-spacing:0.08em; text-transform:uppercase; }
+        .avail-dot { width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:pg 2.5s ease infinite; }
+
+        .mc-name { font-family:var(--brand); font-weight:700; font-size:0.98rem; margin-bottom:3px; }
+        .mc-role { font-size:0.8rem; color:var(--t2); margin-bottom:16px; }
+
+        .mc-tags { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px; }
+        .mc-tag {
+            background:rgba(255,255,255,0.04);
+            border:1px solid var(--border);
+            border-radius:var(--rp);
+            padding:3px 10px;
+            font-size:0.72rem; color:var(--t2);
+        }
+
+        .mc-btn {
+            width:100%; padding:10px;
+            background:rgba(139,92,246,0.1);
+            border:1px solid rgba(139,92,246,0.22);
+            border-radius:var(--rs);
+            color:var(--pl); font-weight:600; font-size:0.84rem;
+            font-family:var(--body);
+            cursor:none; transition:all 0.25s;
+            opacity:0; transform:translateY(6px);
+            transition:opacity 0.25s, transform 0.25s, background 0.25s;
+        }
+        .mcard:hover .mc-btn { opacity:1; transform:translateY(0); }
+
+        /* ── Value props ── */
+        .vprops { padding:110px 28px; background:var(--bg2); }
+
+        .vpgrid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:1px;
+            margin-top:56px;
+            border:1px solid var(--border);
+            border-radius:var(--r);
+            overflow:hidden;
+        }
+        .vp {
+            padding:44px 36px;
+            background:var(--bg2);
+            transition:background 0.3s;
+            position:relative;
+        }
+        .vp::before {
+            content:''; position:absolute; top:0; left:0; right:0;
+            height:2px; opacity:0; transition:opacity 0.3s;
+        }
+        .vp.v1::before { background:linear-gradient(90deg,var(--p),transparent); }
+        .vp.v2::before { background:linear-gradient(90deg,var(--g),transparent); }
+        .vp.v3::before { background:linear-gradient(90deg,var(--pl),var(--gl)); }
+        .vp:hover { background:var(--bg3); }
+        .vp:hover::before { opacity:1; }
+
+        .vp-icon {
+            width:52px; height:52px; border-radius:14px;
+            display:flex; align-items:center; justify-content:center;
+            margin-bottom:24px;
+        }
+        .vi1 svg { color:var(--pl); }
+        .vi2 svg { color:var(--gl); }
+        .vi3 svg { color:var(--pl); }
+        .vi1 { background:rgba(139,92,246,0.12); }
+        .vi2 { background:rgba(245,158,11,0.12); }
+        .vi3 { background:rgba(167,139,250,0.12); }
+
+        .vp-title { font-family:var(--brand); font-weight:700; font-size:1.25rem; margin-bottom:10px; }
+        .vp-desc  { font-size:0.9rem; color:var(--t2); line-height:1.74; }
+
+        /* ── Courses ── */
+        .courses-sec { padding:110px 0 110px 28px; overflow:hidden; }
+        .courses-hdr {
+            max-width:1160px; margin:0 auto; padding-right:28px;
+            display:flex; align-items:flex-end;
+            justify-content:space-between; flex-wrap:wrap; gap:20px;
+            margin-bottom:40px;
+        }
+        .cscroll {
+            max-width:1160px; margin:0 auto;
+            display:flex; gap:16px;
+            overflow-x:auto; padding-right:28px; padding-bottom:6px;
+            scrollbar-width:none;
+        }
+        .cscroll::-webkit-scrollbar { display:none; }
+
+        .cc {
+            flex-shrink:0; width:272px;
+            background:var(--card); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:all 0.3s var(--ease);
+        }
+        .cc:hover { border-color:var(--border-h); transform:translateY(-4px); }
+
+        .cc-img {
+            height:148px;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .cc-img svg { width:52px; height:52px; color:rgba(255,255,255,0.82); stroke-width:1.5; }
+        .ci1{background:linear-gradient(135deg,#3B0764,#6D28D9);}
+        .ci2{background:linear-gradient(135deg,#78350F,#D97706);}
+        .ci3{background:linear-gradient(135deg,#1E3A5F,#1D4ED8);}
+        .ci4{background:linear-gradient(135deg,#064E3B,#059669);}
+        .ci5{background:linear-gradient(135deg,#1C1917,#44403C);}
+
+        .cc-body { padding:20px; }
+        .cc-lvl  { font-family:var(--mono); font-size:0.6rem; color:var(--t3); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px; }
+        .cc-title{ font-family:var(--brand); font-weight:700; font-size:1rem; margin-bottom:7px; }
+        .cc-desc { font-size:0.82rem; color:var(--t2); line-height:1.64; margin-bottom:16px; }
+        .cc-badge{
+            display:inline-block; padding:3px 11px; border-radius:var(--rp);
+            font-size:0.7rem; font-weight:600;
+        }
+        .cb-free { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.22); color:var(--pl); }
+        .cb-paid { background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2);  color:var(--gl); }
+        .cb-soon { background:rgba(75,85,99,0.15);  border:1px solid rgba(75,85,99,0.25);   color:var(--t3); }
+
+        /* ── Waitlist ── */
+        .wl { padding:130px 28px; text-align:center; position:relative; overflow:hidden; }
+        .wl::before {
+            content:''; position:absolute; top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            width:800px; height:800px;
+            background:radial-gradient(circle,rgba(109,40,217,0.12) 0%,transparent 70%);
+            pointer-events:none;
+        }
+        .wl-z { position:relative; z-index:2; max-width:520px; margin:0 auto; }
+        .wl-h {
+            font-family:var(--brand); font-weight:800;
+            font-size:clamp(2rem,5vw,2.75rem);
+            line-height:1.16; letter-spacing:-0.024em; margin-bottom:14px;
+        }
+        .wl-s { color:var(--t2); margin-bottom:38px; line-height:1.76; font-size:1.02rem; }
+        .wl-form { display:flex; gap:10px; max-width:420px; margin:0 auto; }
+        .wl-in {
+            flex:1; background:rgba(255,255,255,0.05);
+            border:1px solid var(--border); border-radius:var(--rp);
+            padding:13px 20px; color:var(--t);
+            font-family:var(--body); font-size:0.88rem; outline:none;
+            transition:border-color 0.25s, box-shadow 0.25s;
+        }
+        .wl-in::placeholder { color:var(--t3); }
+        .wl-in:focus { border-color:rgba(139,92,246,0.48); box-shadow:0 0 0 3px rgba(139,92,246,0.08); }
+        .wl-btn {
+            background:linear-gradient(135deg,var(--p),var(--pd));
+            color:#fff; border:none;
+            padding:13px 24px; border-radius:var(--rp);
+            font-weight:600; font-size:0.88rem;
+            font-family:var(--body);
+            box-shadow:0 0 22px var(--pglow);
+            transition:all 0.25s; white-space:nowrap; cursor:none;
+        }
+        .wl-btn:hover { transform:translateY(-2px); box-shadow:0 0 44px var(--pglow); }
+        .wl-note { margin-top:14px; font-size:0.76rem; color:var(--t4); }
+
+        /* ── Footer ── */
+        footer {
+            border-top:1px solid var(--border);
+            padding:44px 28px; background:var(--bg2);
+        }
+        .fi {
+            max-width:1160px; margin:0 auto;
+            display:flex; align-items:center;
+            justify-content:space-between; flex-wrap:wrap; gap:22px;
+        }
+        .fbrand {
+            font-family:var(--brand); font-weight:800;
+            font-size:1rem; letter-spacing:0.2em;
+            background:linear-gradient(135deg,var(--pl),var(--gl));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+        .flinks { display:flex; gap:26px; list-style:none; flex-wrap:wrap; }
+        .flinks a { color:var(--t3); text-decoration:none; font-size:0.82rem; transition:color 0.25s; }
+        .flinks a:hover { color:var(--t2); }
+        .fcopy { font-size:0.76rem; color:var(--t4); }
+
+        /* ── Reveal ── */
+        .rv { opacity:0; transform:translateY(26px); transition:opacity 0.7s var(--ease),transform 0.7s var(--ease); }
+        .rv.in { opacity:1; transform:translateY(0); }
+        .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
+        .d4{transition-delay:.32s;} .d5{transition-delay:.40s;} .d6{transition-delay:.48s;}
+
+        /* hidden mentor cards for filter */
+        .mcard.hidden { display:none; }
+
+        /* ── Lucide icon sizing ── */
+        .trust-item svg { width:18px; height:18px; flex-shrink:0; color:var(--pl); }
+        .vp-icon svg { width:26px; height:26px; }
+
+        /* ── Responsive ── */
+        @media(max-width:768px){
+            .nlinks { display:none; }
+            .hiw-steps::before { display:none; }
+            .wl-form { flex-direction:column; }
+            .fi { flex-direction:column; text-align:center; }
+            .courses-hdr { flex-direction:column; align-items:flex-start; }
+            #cur,#crf { display:none; }
+            body { cursor:auto; }
+            a,button { cursor:pointer; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="crf"></div>
+
+<!-- Loader -->
+<div id="loader">
+    <div class="ld-word">JOSEPH</div>
+    <div class="ld-bar"></div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+    <div class="ni">
+        <a href="#" class="nlogo">
+            <svg width="30" height="26" viewBox="0 0 36 30" fill="none">
+                <circle cx="18" cy="4"  r="3.2" fill="#F59E0B"/>
+                <circle cx="6"  cy="26" r="3.2" fill="#8B5CF6"/>
+                <circle cx="30" cy="26" r="3.2" fill="#8B5CF6"/>
+                <line x1="18" y1="7.2" x2="6"  y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+                <line x1="18" y1="7.2" x2="30" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+                <line x1="6"  y1="26"  x2="30" y2="26"   stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+            </svg>
+            <span class="nlogo-t">JOSEPH</span>
+        </a>
+        <ul class="nlinks">
+            <li><a href="#mentors">Mentors</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#waitlist" class="nbtn">Find a Mentor</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+
+    <div class="hero-z">
+        <div class="h-eyebrow"><span class="pdot"></span>Mentorship · Growth · Purpose</div>
+
+        <h1 class="h-title">
+            <span class="ht1">Stop figuring</span>
+            <span class="ht2">it out alone.</span>
+        </h1>
+
+        <p class="h-sub">
+            Joseph connects ambitious young people with expert mentors across every field — so you can navigate your career, grow faster, and step into the person you're meant to be.
+        </p>
+
+        <div class="h-ctas">
+            <a href="#mentors" class="btn-p">
+                Browse Mentors
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#how" class="btn-g">How it works</a>
+        </div>
+
+        <div class="h-mentors">
+            <div class="av-stack">
+                <div class="av a1">AT</div>
+                <div class="av a2">MR</div>
+                <div class="av a3">PN</div>
+                <div class="av a4">JB</div>
+                <div class="av a5">LC</div>
+            </div>
+            <span class="h-m-label"><strong>100+ mentors</strong> ready to connect with you</span>
+        </div>
+    </div>
+
+    <div class="scue"><div class="sline"></div><span>Scroll</span></div>
+</section>
+
+<!-- Trust bar -->
+<div class="trust">
+    <div class="trust-in">
+        <div class="trust-item"><i data-lucide="target"></i><span><strong>500+</strong> young people growing</span></div>
+        <div class="trust-div"></div>
+        <div class="trust-item"><i data-lucide="users"></i><span><strong>100+</strong> vetted mentors</span></div>
+        <div class="trust-div"></div>
+        <div class="trust-item"><i data-lucide="globe"></i><span><strong>12</strong> cities and counting</span></div>
+        <div class="trust-div"></div>
+        <div class="trust-item"><i data-lucide="star"></i><span><strong>4.9/5</strong> average rating</span></div>
+    </div>
+</div>
+
+<!-- How it works -->
+<section class="hiw" id="how">
+    <div class="hiw-in">
+        <div class="rv" style="text-align:center">
+            <div class="stag" style="justify-content:center">Simple Process</div>
+            <h2 class="sh">Three steps to <span class="gt">your mentor</span></h2>
+        </div>
+        <div class="hiw-steps">
+            <div class="hw-step rv d1">
+                <div class="hw-n lit">01</div>
+                <div class="hw-title">Browse</div>
+                <p class="hw-desc">Explore mentors by field, interest, or goal. No quiz, no barriers. Find someone whose path resonates with yours.</p>
+            </div>
+            <div class="hw-step rv d2">
+                <div class="hw-n">02</div>
+                <div class="hw-title">Connect</div>
+                <p class="hw-desc">Book a session directly. Your first conversation is about getting to know each other and deciding if it's a fit.</p>
+            </div>
+            <div class="hw-step rv d3">
+                <div class="hw-n">03</div>
+                <div class="hw-title">Grow</div>
+                <p class="hw-desc">Work through real goals — career moves, projects, decisions — with someone who's been where you want to go.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mentors -->
+<section class="mentors-sec" id="mentors">
+    <div class="con">
+        <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+            <div>
+                <div class="stag">Expert Mentors</div>
+                <h2 class="sh">People who've <span class="gt">been there</span></h2>
+                <p class="ss">Real professionals. Real careers. Real guidance — no gatekeeping, no waiting lists.</p>
+            </div>
+            <a href="#waitlist" class="btn-g rv" style="margin-bottom:4px">View all mentors →</a>
+        </div>
+
+        <div class="filter-tabs rv d1">
+            <button class="ftab active" data-filter="all">All</button>
+            <button class="ftab" data-filter="tech">Tech</button>
+            <button class="ftab" data-filter="business">Business</button>
+            <button class="ftab" data-filter="creative">Creative</button>
+            <button class="ftab" data-filter="healthcare">Healthcare</button>
+            <button class="ftab" data-filter="education">Education</button>
+            <button class="ftab" data-filter="finance">Finance</button>
+            <button class="ftab" data-filter="law">Law & Policy</button>
+        </div>
+
+        <div class="mgrid" id="mgrid">
+
+            <div class="mcard rv d1" data-cat="tech">
+                <div class="mc-top">
+                    <div class="mc-av a1">AT</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Aisha Thompson</div>
+                <div class="mc-role">VP of Product · Google</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Product Strategy</span>
+                    <span class="mc-tag">Leadership</span>
+                    <span class="mc-tag">Tech Careers</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d2" data-cat="creative">
+                <div class="mc-top">
+                    <div class="mc-av a2">MR</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Marcus Rivera</div>
+                <div class="mc-role">Creative Director · Nike</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Branding</span>
+                    <span class="mc-tag">Design Thinking</span>
+                    <span class="mc-tag">Storytelling</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d3" data-cat="healthcare">
+                <div class="mc-top">
+                    <div class="mc-av a3">PN</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Dr. Priya Nair</div>
+                <div class="mc-role">Founder · HealthBridge</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Entrepreneurship</span>
+                    <span class="mc-tag">Healthcare</span>
+                    <span class="mc-tag">Impact</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d4" data-cat="tech">
+                <div class="mc-top">
+                    <div class="mc-av a4">JB</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Jordan Baptiste</div>
+                <div class="mc-role">Staff Engineer · Stripe</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Software Engineering</span>
+                    <span class="mc-tag">Career Growth</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d2" data-cat="business">
+                <div class="mc-top">
+                    <div class="mc-av a5">LC</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Layla Chen</div>
+                <div class="mc-role">COO · Series B Startup</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Operations</span>
+                    <span class="mc-tag">Startups</span>
+                    <span class="mc-tag">Strategy</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d3" data-cat="finance">
+                <div class="mc-top">
+                    <div class="mc-av a6">DW</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">David Williams</div>
+                <div class="mc-role">VP Investments · JP Morgan</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Finance</span>
+                    <span class="mc-tag">Wall Street</span>
+                    <span class="mc-tag">Wealth</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d4" data-cat="education">
+                <div class="mc-top">
+                    <div class="mc-av a1">SR</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Sofia Rodriguez</div>
+                <div class="mc-role">Dean of Students · Columbia</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">College Readiness</span>
+                    <span class="mc-tag">Academia</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d4" data-cat="law">
+                <div class="mc-top">
+                    <div class="mc-av a3">KA</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Kwame Asante</div>
+                <div class="mc-role">Policy Director · U.S. Senate</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Public Policy</span>
+                    <span class="mc-tag">Governance</span>
+                    <span class="mc-tag">Immigration Law</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+            <div class="mcard rv d5" data-cat="business creative">
+                <div class="mc-top">
+                    <div class="mc-av a2">TM</div>
+                    <div class="mc-avail"><span class="avail-dot"></span>Available</div>
+                </div>
+                <div class="mc-name">Tobias Moore</div>
+                <div class="mc-role">Founder · Media Agency</div>
+                <div class="mc-tags">
+                    <span class="mc-tag">Content</span>
+                    <span class="mc-tag">Social Media</span>
+                    <span class="mc-tag">Brand Building</span>
+                </div>
+                <button class="mc-btn">Book a Session →</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- What you get (value props) -->
+<section class="vprops" id="about">
+    <div class="con">
+        <div class="rv" style="text-align:center;margin-bottom:0">
+            <div class="stag" style="justify-content:center">The Platform</div>
+            <h2 class="sh" style="text-align:center">Everything you need to <span class="gt">level up</span></h2>
+        </div>
+        <div class="vpgrid">
+            <div class="vp v1 rv d1">
+                <div class="vp-icon vi1"><i data-lucide="compass"></i></div>
+                <div class="vp-title">Get Mentored</div>
+                <p class="vp-desc">Connect 1-on-1 with professionals across tech, business, healthcare, law, finance, and the arts. Work on your career, your projects, and your goals — at your pace.</p>
+            </div>
+            <div class="vp v2 rv d2">
+                <div class="vp-icon vi2"><i data-lucide="search"></i></div>
+                <div class="vp-title">Discover Yourself</div>
+                <p class="vp-desc">Go deeper with courses built around identity, personality, gifts, and purpose. Understand who you are so you can show up with clarity — in every room you walk into.</p>
+            </div>
+            <div class="vp v3 rv d3">
+                <div class="vp-icon vi3"><i data-lucide="globe"></i></div>
+                <div class="vp-title">Build Your Future</div>
+                <p class="vp-desc">Attend events, tackle real projects, and join a community of young people who refuse to be ordinary. Your gifts were given to change something — start here.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses -->
+<section class="courses-sec" id="courses">
+    <div class="courses-hdr rv">
+        <div>
+            <div class="stag">Self-Discovery Courses</div>
+            <h2 class="sh">Know yourself.<br><span class="gt">Build from there.</span></h2>
+            <p class="ss" style="max-width:380px">Courses designed to help you understand your identity, passions, and purpose — so your mentorship goes deeper.</p>
+        </div>
+        <a href="#waitlist" class="btn-g">See all courses →</a>
+    </div>
+
+    <div class="cscroll">
+        <div class="cc rv d1">
+            <div class="cc-img ci1"><i data-lucide="crown"></i></div>
+            <div class="cc-body">
+                <div class="cc-lvl">Course 101</div>
+                <div class="cc-title">Identity</div>
+                <p class="cc-desc">Who are you before you do anything? Build an unshakeable foundation from the inside out.</p>
+                <span class="cc-badge cb-free">Free</span>
+            </div>
+        </div>
+        <div class="cc rv d2">
+            <div class="cc-img ci2"><i data-lucide="layers"></i></div>
+            <div class="cc-body">
+                <div class="cc-lvl">Course 201</div>
+                <div class="cc-title">Frame</div>
+                <p class="cc-desc">Map your passion, personality, and strengths. Align your gifts with the life you want to build.</p>
+                <span class="cc-badge cb-paid">Builder+</span>
+            </div>
+        </div>
+        <div class="cc rv d3">
+            <div class="cc-img ci3"><i data-lucide="zap"></i></div>
+            <div class="cc-body">
+                <div class="cc-lvl">Course 301</div>
+                <div class="cc-title">Innovation</div>
+                <p class="cc-desc">Solve real problems with what's in your hands. Learn design thinking and build something that matters.</p>
+                <span class="cc-badge cb-paid">Builder+</span>
+            </div>
+        </div>
+        <div class="cc rv d4">
+            <div class="cc-img ci4"><i data-lucide="globe-2"></i></div>
+            <div class="cc-body">
+                <div class="cc-lvl">Course 401</div>
+                <div class="cc-title">Influence</div>
+                <p class="cc-desc">Lead with values. Make your life your message. Change your corner of the world for real.</p>
+                <span class="cc-badge cb-paid">Founder+</span>
+            </div>
+        </div>
+        <div class="cc rv d5" style="border-color:rgba(139,92,246,0.14)">
+            <div class="cc-img ci5"><i data-lucide="landmark"></i></div>
+            <div class="cc-body">
+                <div class="cc-lvl">Bonus</div>
+                <div class="cc-title">American Dream Reimagined</div>
+                <p class="cc-desc">Our past, our future, and your role as a nation builder in this generation.</p>
+                <span class="cc-badge cb-soon">Coming Soon</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Waitlist -->
+<section class="wl" id="waitlist">
+    <div class="con">
+        <div class="wl-z rv">
+            <div class="stag" style="justify-content:center">Get Early Access</div>
+            <h2 class="wl-h">Your mentor is <span class="gt">waiting.</span></h2>
+            <p class="wl-s">Join Joseph free — browse mentors, start a course, and connect with a community of young people building something real.</p>
+            <form class="wl-form" onsubmit="handleWL(event)">
+                <input type="email" class="wl-in" placeholder="your@email.com" required id="wlEmail">
+                <button type="submit" class="wl-btn" id="wlBtn">Join Free</button>
+            </form>
+            <p class="wl-note">Free to join · No spam · Cancel anytime</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="fi">
+        <div class="fbrand">JOSEPH</div>
+        <ul class="flinks">
+            <li><a href="#mentors">Mentors</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+        <div class="fcopy">© 2026 Joseph. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+// Loader
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('out'), 2400);
+});
+
+// Cursor
+const cur = document.getElementById('cur');
+const crf = document.getElementById('crf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+});
+(function loop(){
+    fx+=(mx-fx)*0.12; fy+=(my-fy)*0.12;
+    crf.style.left=fx+'px'; crf.style.top=fy+'px';
+    requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,.mcard,.cc,.vp').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+        cur.style.width='16px'; cur.style.height='16px'; cur.style.background='var(--g)';
+        crf.style.width='50px'; crf.style.height='50px'; crf.style.borderColor='rgba(245,158,11,0.4)';
+    });
+    el.addEventListener('mouseleave',()=>{
+        cur.style.width='10px'; cur.style.height='10px'; cur.style.background='var(--p)';
+        crf.style.width='34px'; crf.style.height='34px'; crf.style.borderColor='rgba(139,92,246,0.45)';
+    });
+});
+
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>40));
+
+// Scroll reveal
+const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+},{threshold:0.07,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// Mentor filter
+document.querySelectorAll('.ftab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f=btn.dataset.filter;
+        document.querySelectorAll('.mcard').forEach(card=>{
+            const cat=card.dataset.cat||'';
+            card.classList.toggle('hidden', f!=='all' && !cat.includes(f));
+        });
+    });
+});
+
+// Waitlist
+function handleWL(e){
+    e.preventDefault();
+    const btn=document.getElementById('wlBtn');
+    btn.textContent="You're in!";
+    btn.style.background='linear-gradient(135deg,#059669,#047857)';
+    btn.style.boxShadow='0 0 30px rgba(5,150,105,0.4)';
+    document.getElementById('wlEmail').value='';
+    setTimeout(()=>{
+        btn.textContent='Join Free';
+        btn.style.background=''; btn.style.boxShadow='';
+    },4000);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+    });
+});
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

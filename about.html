@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JOSEPH — Built for the ones who feel it. Who they are, what they believe, and who they're looking for.">
+    <title>About — JOSEPH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307070F'/><circle cx='16' cy='5' r='3.5' fill='%23F59E0B'/><circle cx='5' cy='27' r='3.5' fill='%238B5CF6'/><circle cx='27' cy='27' r='3.5' fill='%238B5CF6'/><line x1='16' y1='8.5' x2='5' y2='23.5' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/><line x1='16' y1='8.5' x2='27' y2='23.5' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/><line x1='5' y1='27' x2='27' y2='27' stroke='rgba(255,255,255,0.2)' stroke-width='1.5'/></svg>">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:   #07070F;
+            --bg2:  #0C0C1A;
+            --bg3:  #101020;
+            --border: rgba(255,255,255,0.07);
+            --border-h: rgba(139,92,246,0.38);
+            --card: rgba(255,255,255,0.03);
+
+            --p:  #8B5CF6;
+            --pl: #A78BFA;
+            --pd: #6D28D9;
+            --pg: rgba(139,92,246,0.25);
+
+            --g:  #F59E0B;
+            --gl: #FCD34D;
+
+            --t:  #FFFFFF;
+            --t2: #9CA3AF;
+            --t3: #4B5563;
+            --t4: #374151;
+
+            --brand: 'Syne', sans-serif;
+            --body:  'Outfit', sans-serif;
+            --mono:  'JetBrains Mono', monospace;
+
+            --r:  16px;
+            --rp: 100px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--t);
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            opacity: 0.022;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px;
+            pointer-events: none; z-index: 9997;
+        }
+
+        /* Cursor */
+        #cur, #crf {
+            position: fixed; top: 0; left: 0;
+            pointer-events: none; z-index: 9999;
+            transform: translate(-50%,-50%);
+            transition: width .2s, height .2s, background .2s, border-color .2s;
+        }
+        #cur { width:10px; height:10px; background:var(--p); border-radius:50%; }
+        #crf { width:34px; height:34px; border:1px solid rgba(139,92,246,0.45); border-radius:50%; transition-duration:.3s; }
+
+        /* Nav */
+        nav {
+            position: fixed; top:0; left:0; right:0; z-index:1000;
+            padding: 22px 0;
+            transition: padding .3s var(--ease), background .3s, border-color .3s;
+        }
+        nav.on {
+            padding: 13px 0;
+            background: rgba(7,7,15,0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+        }
+        .ni {
+            max-width: 1160px; margin: 0 auto;
+            padding: 0 28px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nlogo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+        .nlogo-t { font-family:var(--brand); font-weight:800; font-size:1rem; letter-spacing:.2em; color:var(--t); }
+        .nlinks { display:flex; align-items:center; gap:34px; list-style:none; }
+        .nlinks a { color:var(--t2); text-decoration:none; font-size:.875rem; font-weight:500; transition:color .25s; }
+        .nlinks a:hover, .nlinks a.active { color:var(--t); }
+        .nbtn {
+            background:var(--p) !important; color:#fff !important;
+            padding:9px 22px !important; border-radius:var(--rp) !important;
+            font-weight:600 !important; font-size:.86rem !important;
+            box-shadow:0 0 22px var(--pg);
+            transition:all .25s !important;
+        }
+        .nbtn:hover { transform:translateY(-1px); box-shadow:0 0 40px var(--pg) !important; }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            min-height: 62vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 160px 28px 80px;
+            position: relative; overflow: hidden;
+        }
+
+        .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(100px); pointer-events: none;
+            animation: drift linear infinite;
+        }
+        .o1 { width:560px;height:560px; background:radial-gradient(circle,rgba(109,40,217,0.45) 0%,transparent 70%); top:-220px;left:-140px; animation-duration:24s; }
+        .o2 { width:440px;height:440px; background:radial-gradient(circle,rgba(245,158,11,0.25) 0%,transparent 70%); top:-160px;right:-100px; animation-duration:30s; animation-direction:reverse; }
+        @keyframes drift {
+            0%,100%{ transform:translate(0,0) rotate(0deg); }
+            25%    { transform:translate(30px,-30px) rotate(90deg); }
+            50%    { transform:translate(-16px,24px) rotate(180deg); }
+            75%    { transform:translate(18px,6px) rotate(270deg); }
+        }
+
+        .ph-tag {
+            display:inline-flex; align-items:center; gap:9px;
+            background:rgba(139,92,246,0.08);
+            border:1px solid rgba(139,92,246,0.2);
+            border-radius:var(--rp);
+            padding:7px 16px;
+            font-family:var(--mono); font-size:.7rem;
+            color:var(--pl); letter-spacing:.12em; text-transform:uppercase;
+            margin-bottom:28px;
+            opacity:0; transform:translateY(14px);
+            animation:up .7s var(--ease) .3s forwards;
+        }
+
+        .ph-title {
+            font-family: var(--brand); font-weight: 800;
+            font-size: clamp(2.6rem,7vw,5rem);
+            line-height: 1.04; letter-spacing: -.028em;
+            margin-bottom: 22px;
+            opacity:0; transform:translateY(24px);
+            animation:up .85s var(--ease) .5s forwards;
+        }
+
+        .ph-title .t1 { display:block; color:var(--t); }
+        .ph-title .t2 {
+            display:block;
+            background:linear-gradient(135deg,var(--pl) 0%,var(--gl) 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        .ph-sub {
+            font-size:clamp(1rem,1.7vw,1.12rem);
+            color:var(--t2); max-width:540px; margin:0 auto;
+            line-height:1.78; font-weight:400;
+            opacity:0; transform:translateY(16px);
+            animation:up .75s var(--ease) .7s forwards;
+        }
+
+        @keyframes up { to{ opacity:1; transform:translateY(0); } }
+
+        /* ── CONTENT LAYOUT ── */
+        .content { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+        .content-wide { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+        /* ── PROSE ── */
+        .prose-section { padding: 80px 0; border-top: 1px solid var(--border); }
+
+        .prose-tag {
+            display:inline-flex; align-items:center; gap:10px;
+            font-family:var(--mono); font-size:.68rem;
+            color:var(--pl); letter-spacing:.16em; text-transform:uppercase;
+            margin-bottom:20px;
+        }
+        .prose-tag::before { content:''; width:16px; height:1px; background:var(--p); }
+
+        .prose-h {
+            font-family: var(--brand); font-weight: 800;
+            font-size: clamp(1.8rem,3.5vw,2.6rem);
+            line-height: 1.14; letter-spacing: -.024em;
+            margin-bottom: 28px;
+        }
+
+        .gt {
+            background:linear-gradient(135deg,var(--pl),var(--gl));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        .prose p {
+            font-size: 1.06rem;
+            color: var(--t2);
+            line-height: 1.82;
+            margin-bottom: 22px;
+        }
+
+        .prose p strong { color: var(--t); font-weight: 600; }
+
+        .prose p:last-child { margin-bottom: 0; }
+
+        /* Pull quote */
+        .pull-quote {
+            border-left: 2px solid var(--p);
+            padding: 4px 0 4px 28px;
+            margin: 40px 0;
+        }
+        .pull-quote p {
+            font-family: var(--brand);
+            font-weight: 700;
+            font-size: clamp(1.15rem,2.2vw,1.5rem);
+            color: var(--t) !important;
+            line-height: 1.5;
+            margin-bottom: 0 !important;
+        }
+
+        /* ── THE JOSEPH ARCHETYPE ── */
+        .archetype-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── JOURNEY STAGES ── */
+        .journey-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            background: var(--bg2);
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 1px;
+            margin-top: 52px;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+        }
+
+        .jstage {
+            padding: 44px 36px;
+            background: var(--bg2);
+            position: relative;
+            transition: background .3s;
+        }
+        .jstage:hover { background: var(--bg3); }
+        .jstage::before {
+            content:''; position:absolute;
+            top:0; left:0; right:0; height:2px;
+            opacity:0; transition:opacity .3s;
+        }
+        .jstage.j1::before { background:linear-gradient(90deg,var(--p),transparent); }
+        .jstage.j2::before { background:linear-gradient(90deg,var(--g),transparent); }
+        .jstage.j3::before { background:linear-gradient(90deg,var(--pl),var(--gl)); }
+        .jstage:hover::before { opacity:1; }
+
+        .js-num {
+            font-family: var(--mono);
+            font-size: .68rem; color: var(--t3);
+            letter-spacing: .1em; margin-bottom: 20px;
+        }
+        .js-icon {
+            width:50px; height:50px; border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            margin-bottom:22px;
+        }
+        .ji1 svg { color:var(--pl); }
+        .ji2 svg { color:var(--gl); }
+        .ji3 svg { color:var(--pl); }
+        .js-icon svg { width:26px; height:26px; }
+        .ji1{background:rgba(139,92,246,.12);}
+        .ji2{background:rgba(245,158,11,.12);}
+        .ji3{background:rgba(167,139,250,.12);}
+
+        .js-title {
+            font-family:var(--brand); font-weight:700;
+            font-size:1.2rem; margin-bottom:12px;
+        }
+        .js-desc { font-size:.92rem; color:var(--t2); line-height:1.74; }
+
+        /* ── BELIEFS ── */
+        .beliefs-section { padding: 80px 0; border-top: 1px solid var(--border); }
+
+        .beliefs-list { margin-top: 48px; }
+
+        .belief {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 24px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all .3s;
+        }
+        .belief:first-child { border-top: 1px solid var(--border); }
+        .belief:hover .belief-num { color: var(--pl); }
+
+        .belief-num {
+            font-family: var(--mono);
+            font-size: .72rem; color: var(--t3);
+            letter-spacing: .08em;
+            padding-top: 4px;
+            transition: color .3s;
+        }
+        .belief-body {}
+        .belief-title {
+            font-family:var(--brand); font-weight:700;
+            font-size:1.08rem; margin-bottom:8px;
+        }
+        .belief-desc { font-size:.92rem; color:var(--t2); line-height:1.72; }
+
+        /* ── WHO THIS IS FOR ── */
+        .for-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            background: var(--bg2);
+        }
+
+        .for-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .for-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 28px;
+            transition: all .3s var(--ease);
+        }
+        .for-card:hover {
+            border-color: var(--border-h);
+            transform: translateY(-3px);
+            background: rgba(255,255,255,.055);
+        }
+        .for-icon { margin-bottom:14px; color:var(--pl); }
+        .for-icon svg { width:26px; height:26px; }
+        .for-title {
+            font-family:var(--brand); font-weight:700;
+            font-size:.98rem; margin-bottom:8px;
+        }
+        .for-desc { font-size:.86rem; color:var(--t2); line-height:1.7; }
+
+        /* ── MANIFESTO BLOCK ── */
+        .manifesto-section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .manifesto-section::before {
+            content:''; position:absolute;
+            top:50%;left:50%;
+            transform:translate(-50%,-50%);
+            width:700px;height:700px;
+            background:radial-gradient(circle,rgba(109,40,217,.12) 0%,transparent 70%);
+            pointer-events:none;
+        }
+        .manifesto-text {
+            position:relative; z-index:2;
+            font-family:var(--brand); font-weight:700;
+            font-size:clamp(1.5rem,3.5vw,2.4rem);
+            line-height:1.48;
+            max-width:860px; margin:0 auto 52px;
+            color:var(--t2);
+        }
+        .manifesto-text strong { color:var(--t); }
+        .manifesto-text .hl {
+            background:linear-gradient(135deg,var(--pl),var(--gl));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+
+        /* CTA */
+        .btn-p {
+            display:inline-flex; align-items:center; gap:8px;
+            background:linear-gradient(135deg,var(--p),var(--pd));
+            color:#fff; padding:14px 30px; border-radius:var(--rp);
+            font-weight:600; font-size:.95rem; text-decoration:none;
+            box-shadow:0 0 32px var(--pg),inset 0 1px 0 rgba(255,255,255,.1);
+            transition:all .3s var(--ease);
+        }
+        .btn-p:hover { transform:translateY(-3px); box-shadow:0 0 56px var(--pg),0 12px 36px rgba(109,40,217,.4); }
+
+        .btn-g {
+            display:inline-flex; align-items:center; gap:8px;
+            background:transparent; color:var(--t2);
+            padding:14px 30px; border-radius:var(--rp);
+            font-weight:500; font-size:.95rem; text-decoration:none;
+            border:1px solid var(--border); transition:all .3s var(--ease);
+        }
+        .btn-g:hover { color:var(--t); border-color:rgba(255,255,255,.18); background:rgba(255,255,255,.04); }
+
+        /* Footer */
+        footer { border-top:1px solid var(--border); padding:44px 28px; background:var(--bg2); }
+        .fi { max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px; }
+        .fbrand { font-family:var(--brand);font-weight:800;font-size:1rem;letter-spacing:.2em;background:linear-gradient(135deg,var(--pl),var(--gl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+        .flinks { display:flex;gap:26px;list-style:none;flex-wrap:wrap; }
+        .flinks a { color:var(--t3);text-decoration:none;font-size:.82rem;transition:color .25s; }
+        .flinks a:hover { color:var(--t2); }
+        .fcopy { font-size:.76rem;color:var(--t4); }
+
+        /* Reveal */
+        .rv { opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease),transform .7s var(--ease); }
+        .rv.in { opacity:1; transform:translateY(0); }
+        .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;} .d4{transition-delay:.32s;}
+
+        @media(max-width:768px){
+            .nlinks{display:none;}
+            .fi{flex-direction:column;text-align:center;}
+            #cur,#crf{display:none;}
+            body{cursor:auto;}
+        }
+    </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="crf"></div>
+
+<!-- Nav -->
+<nav id="nav">
+    <div class="ni">
+        <a href="index.html" class="nlogo">
+            <svg width="30" height="26" viewBox="0 0 36 30" fill="none">
+                <circle cx="18" cy="4"  r="3.2" fill="#F59E0B"/>
+                <circle cx="6"  cy="26" r="3.2" fill="#8B5CF6"/>
+                <circle cx="30" cy="26" r="3.2" fill="#8B5CF6"/>
+                <line x1="18" y1="7.2" x2="6"  y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+                <line x1="18" y1="7.2" x2="30" y2="22.8" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+                <line x1="6"  y1="26"  x2="30" y2="26"   stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+            </svg>
+            <span class="nlogo-t">JOSEPH</span>
+        </a>
+        <ul class="nlinks">
+            <li><a href="index.html#mentors">Mentors</a></li>
+            <li><a href="index.html#how">How it works</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="index.html#waitlist" class="nbtn">Find a Mentor</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+
+    <div style="position:relative;z-index:2;max-width:740px;">
+        <div class="ph-tag">Our Story & Mission</div>
+        <h1 class="ph-title">
+            <span class="t1">Built for the ones</span>
+            <span class="t2">who feel it.</span>
+        </h1>
+        <p class="ph-sub">
+            That pull. That restlessness. That quiet certainty that you were made for something more than ordinary. If you know that feeling — you're exactly who Joseph was built for.
+        </p>
+    </div>
+</section>
+
+<!-- The Problem -->
+<div class="content">
+    <section class="prose-section rv">
+        <div class="prose-tag">The Problem</div>
+        <h2 class="prose-h">Most people never find out <span class="gt">who they really are.</span></h2>
+        <div class="prose">
+            <p>They graduate. They take the job that makes sense. They follow the path that was laid out for them — by parents, by culture, by circumstance. They work hard and do well by every standard that was handed to them.</p>
+            <p>And then, somewhere in their twenties or thirties, a question surfaces that won't go away: <strong>Is this it?</strong></p>
+            <p>Not because their lives are bad. Because deep down, they always knew there was something more specific they were supposed to do. A gift they haven't deployed. A problem only they could see. A version of themselves they haven't met yet.</p>
+
+            <div class="pull-quote">
+                <p>"The greatest tragedy is not death — it's a life lived without ever discovering why you were alive."</p>
+            </div>
+
+            <p>We built Joseph because this doesn't have to be the story. The earlier a young person discovers who they are, develops what's inside them, and connects with someone who can help them build — <strong>the more they change everything around them.</strong></p>
+        </div>
+    </section>
+</div>
+
+<!-- Who is a Joseph -->
+<div class="content">
+    <section class="archetype-section rv">
+        <div class="prose-tag">The Archetype</div>
+        <h2 class="prose-h">What is <span class="gt">a Joseph?</span></h2>
+        <div class="prose">
+            <p>The original Joseph was a young man who had a dream — literally. He saw something others couldn't see. He was misunderstood, overlooked, and thrown into places that were never meant for him. But he never lost what was inside him.</p>
+            <p>He used his gift wherever he was. He solved problems no one else could solve. And when his moment came, he didn't just save himself — <strong>he saved nations.</strong></p>
+            <p>That is the archetype we're building around. Not a job title. Not a type of person. A posture. <strong>And not limited to one gender.</strong> A Joseph can be a woman or a man — what matters is the fire, not the name.</p>
+
+            <div class="pull-quote">
+                <p>A Joseph discovers themselves early, develops their gifts intentionally, and deploys them in service of something bigger than themselves.</p>
+            </div>
+
+            <p>They don't wait to be chosen. They don't need a title to lead. They show up — in their school, their community, their field — with <strong>something to offer</strong>, and they offer it.</p>
+            <p>Every generation has them. We're here to find them, equip them, and connect them to each other.</p>
+        </div>
+    </section>
+</div>
+
+<!-- The Journey -->
+<section class="journey-section">
+    <div class="content-wide">
+        <div class="rv" style="max-width:720px;margin:0 auto;text-align:center;">
+            <div class="prose-tag" style="justify-content:center">The Path</div>
+            <h2 class="prose-h" style="text-align:center">Three stages of becoming a <span class="gt">nation builder.</span></h2>
+            <p style="font-size:1rem;color:var(--t2);line-height:1.76;">This isn't a program. It's a journey. One that is deeply personal, intentionally supported, and ultimately outward-facing — because your gifts were never just for you.</p>
+        </div>
+
+        <div class="journey-grid rv d1">
+            <div class="jstage j1">
+                <div class="js-num">Stage 01</div>
+                <div class="js-icon ji1"><i data-lucide="search"></i></div>
+                <div class="js-title">Discover</div>
+                <p class="js-desc">Know who you are before you build anything. Understand your personality, your passions, your gifts, and your purpose. Not who your parents want you to be. Not who your peers say you should be. <strong style="color:var(--t)">Who you actually are.</strong><br><br>This is where most young people are never taken. We take you here first — through courses, assessments, and honest conversations — because everything else builds on this foundation.</p>
+            </div>
+            <div class="jstage j2">
+                <div class="js-num">Stage 02</div>
+                <div class="js-icon ji2"><i data-lucide="zap"></i></div>
+                <div class="js-title">Deploy</div>
+                <p class="js-desc">A gift undeveloped is a gift unused. This is where mentorship becomes everything. Connect with professionals who've built what you want to build — and work on real goals, real projects, and real decisions alongside them.<br><br><strong style="color:var(--t)">Career moves. Business ideas. College paths. Communication. Leadership.</strong> Whatever you're building, you shouldn't be building it alone. We make sure you're not.</p>
+            </div>
+            <div class="jstage j3">
+                <div class="js-num">Stage 03</div>
+                <div class="js-icon ji3"><i data-lucide="globe"></i></div>
+                <div class="js-title">Build</div>
+                <p class="js-desc">This is what it was always for. Not just a better résumé. Not just a higher salary. A life that actually contributes — to your community, your generation, and the world you're inheriting.<br><br>Nation building doesn't start in government. <strong style="color:var(--t)">It starts in the mirror.</strong> It starts when someone decides to become the person their community needs — and then goes and does it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Believe -->
+<div class="content">
+    <section class="beliefs-section rv">
+        <div class="prose-tag">What We Believe</div>
+        <h2 class="prose-h">Our <span class="gt">convictions.</span></h2>
+        <p style="font-size:1rem;color:var(--t2);line-height:1.76;margin-bottom:0;">These are not talking points. They are the foundation of every decision we make, every mentor we recruit, and every course we build.</p>
+
+        <div class="beliefs-list">
+            <div class="belief rv d1">
+                <div class="belief-num">01</div>
+                <div class="belief-body">
+                    <div class="belief-title">Every person is born with something specific.</div>
+                    <p class="belief-desc">Not general potential — specific gifts. A particular way of seeing problems. A particular capacity for connection, creativity, or leadership. Our job is to help young people find it, name it, and build with it.</p>
+                </div>
+            </div>
+            <div class="belief rv d2">
+                <div class="belief-num">02</div>
+                <div class="belief-body">
+                    <div class="belief-title">Self-knowledge is the foundation of everything.</div>
+                    <p class="belief-desc">You cannot lead well if you don't know yourself. You cannot serve well if you don't know what you're serving from. Before ambition, before strategy, before skill — identity. Know who you are.</p>
+                </div>
+            </div>
+            <div class="belief rv d3">
+                <div class="belief-num">03</div>
+                <div class="belief-body">
+                    <div class="belief-title">Your gifts were never just for you.</div>
+                    <p class="belief-desc">Talent that is hoarded corrodes. Purpose that is only self-directed eventually collapses. The most fulfilled people are those who found the intersection of what they're great at and what the world actually needs — and showed up there.</p>
+                </div>
+            </div>
+            <div class="belief rv d4">
+                <div class="belief-num">04</div>
+                <div class="belief-body">
+                    <div class="belief-title">Mentorship changes the trajectory of a life.</div>
+                    <p class="belief-desc">Not advice. Not inspiration. A real relationship with someone who has been where you want to go — who tells you the truth, challenges your excuses, and helps you see what you can't see yet. That is worth more than any degree.</p>
+                </div>
+            </div>
+            <div class="belief rv">
+                <div class="belief-num">05</div>
+                <div class="belief-body">
+                    <div class="belief-title">Communities are only as strong as the people who build them.</div>
+                    <p class="belief-desc">Nation building is not a political idea. It is a personal one. When enough individuals take responsibility for their own development — and then turn that development outward — communities change. Institutions change. Futures change. That is what we're after.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Who This Is For -->
+<section class="for-section">
+    <div class="content-wide">
+        <div class="rv" style="max-width:720px;">
+            <div class="prose-tag">Who This Is For</div>
+            <h2 class="prose-h">You might be a Joseph <span class="gt">if...</span></h2>
+            <p style="font-size:1rem;color:var(--t2);line-height:1.76;">Joseph is not for everyone — and that's intentional. It's for a specific kind of young person. The ones who feel a pull toward something they can't quite name yet. Here's how to know if that's you.</p>
+        </div>
+
+        <div class="for-grid">
+            <div class="for-card rv d1">
+                <div class="for-icon"><i data-lucide="target"></i></div>
+                <div class="for-title">You want more than a job.</div>
+                <p class="for-desc">You want work that means something. A career that lines up with who you actually are — not just what pays well or looks good on paper.</p>
+            </div>
+            <div class="for-card rv d2">
+                <div class="for-icon"><i data-lucide="brain"></i></div>
+                <div class="for-title">You're a problem-solver.</div>
+                <p class="for-desc">You look at broken systems and see possibility. You get restless watching things stay the same when you can clearly see how they could be better.</p>
+            </div>
+            <div class="for-card rv d3">
+                <div class="for-icon"><i data-lucide="sprout"></i></div>
+                <div class="for-title">You're still figuring it out.</div>
+                <p class="for-desc">You don't have all the answers — and you're okay with that. You're honest about where you are and serious about where you want to go.</p>
+            </div>
+            <div class="for-card rv d4">
+                <div class="for-icon"><i data-lucide="handshake"></i></div>
+                <div class="for-title">You believe in community.</div>
+                <p class="for-desc">You understand that success is hollow if it doesn't pour into something beyond you. You want to win — and you want your people to win with you.</p>
+            </div>
+            <div class="for-card rv d1">
+                <div class="for-icon"><i data-lucide="flame"></i></div>
+                <div class="for-title">You're ambitious about the right things.</div>
+                <p class="for-desc">Not just money. Not just status. You want to build something real, lead something meaningful, and leave something behind that matters.</p>
+            </div>
+            <div class="for-card rv d2">
+                <div class="for-icon"><i data-lucide="user"></i></div>
+                <div class="for-title">You — regardless of gender.</div>
+                <p class="for-desc">A Joseph is not a male archetype. It is a human one. Women and men alike — if the pull is there, this platform was built for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Manifesto close -->
+<section class="manifesto-section">
+    <div class="content-wide">
+        <p class="manifesto-text rv">
+            <strong>Every generation faces a moment that demands people who are ready.</strong> Ready to lead, to build, to solve problems that others walk past. We believe this generation — <span class="hl">your generation</span> — has more raw potential than any before it. What it needs is <strong>the right people to step into it.</strong>
+        </p>
+        <p class="manifesto-text rv d1" style="font-size:clamp(1.1rem,2.2vw,1.6rem);margin-bottom:48px;">
+            Joseph exists to make sure <strong>you're one of them.</strong>
+        </p>
+        <div class="rv d2" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:2;">
+            <a href="index.html#mentors" class="btn-p">
+                Find a Mentor
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="index.html#waitlist" class="btn-g">Join the Movement</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="fi">
+        <div class="fbrand">JOSEPH</div>
+        <ul class="flinks">
+            <li><a href="index.html#mentors">Mentors</a></li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+        <div class="fcopy">© 2026 Joseph. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'), crf=document.getElementById('crf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{ mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'; });
+(function loop(){ fx+=(mx-fx)*.12;fy+=(my-fy)*.12;crf.style.left=fx+'px';crf.style.top=fy+'px';requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,.for-card,.jstage,.belief').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ cur.style.width='16px';cur.style.height='16px';cur.style.background='var(--g)';crf.style.width='50px';crf.style.height='50px';crf.style.borderColor='rgba(245,158,11,0.4)'; });
+    el.addEventListener('mouseleave',()=>{ cur.style.width='10px';cur.style.height='10px';cur.style.background='var(--p)';crf.style.width='34px';crf.style.height='34px';crf.style.borderColor='rgba(139,92,246,0.45)'; });
+});
+
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>40));
+
+// Reveal
+const ro=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting)e.target.classList.add('in'); }); },{threshold:.07,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{ const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});} });
+});
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
