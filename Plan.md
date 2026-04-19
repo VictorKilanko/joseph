@@ -22,11 +22,11 @@
 ## 2. Brand Identity
 
 ### Name & Tagline
-- **Platform Name**: **HENCEWARD**
-- **Domain**: `henceward.com` (check availability — register immediately)
+- **Platform Name**: **HENCEWARD** *(meaning: from this point, forward)*
+- **Domain**: `henceward.com` — register immediately on Namecheap (~$12/yr)
 - **Hero Headline**: *"Stop figuring it out alone."*
-- **Sub-tagline**: *"A movement for the next generation of nation builders."*
-- **Note**: Original tagline "Find Your Gift. Build Your World." retired from homepage — too abstract, no clear mechanism. Moved to inner pages / About.
+- **Mark tagline**: *"From here · Forward"*
+- **Movement tagline**: *"A movement for the next generation of nation builders."*
 
 ### Core Values (Tenets) — Internal Use
 These live on the About/inner pages, NOT the homepage. Homepage stays product-focused and universally accessible.
@@ -54,6 +54,33 @@ These live on the About/inner pages, NOT the homepage. Homepage stays product-fo
 
 ### Mentor Filter Categories (Landing Page)
 All · Tech · Business · Creative · Healthcare · Education · Finance · Law & Policy
+
+---
+
+## CURRENT BUILD STATUS (April 2026)
+
+### Pages Live on GitHub Pages
+| Page | File | Status |
+|------|------|--------|
+| Homepage | `index.html` | ✅ Live |
+| About / Brand Story | `about.html` | ✅ Live |
+| Course 101 — Identity | `Course.html` | ✅ Live · Mailchimp wired |
+| Become a Mentor | `mentors.html` | ✅ Live · Tally form embedded |
+
+### Assets
+| Asset | File | Status |
+|-------|------|--------|
+| Logo (full lockup) | `logo.svg` | ✅ Done |
+| Favicon | `favicon.svg` | ✅ Live on all pages |
+| Course content (markdown) | `Courses/` folder | ✅ 4 courses + quizzes |
+| Mentor application form fields | `Form.txt` | ✅ Reference doc ready |
+
+### Integrations
+| Integration | Status | Notes |
+|-------------|--------|-------|
+| Mailchimp | ✅ Wired | JSONP from Course gate + homepage waitlist |
+| Tally (mentor form) | ⏳ Partial | Published but needs 12 questions added (see Form.txt) |
+| Tally → Mailchimp | ❌ Not connected | 5-click setup in Tally → Integrations |
 
 ---
 
@@ -184,23 +211,32 @@ All · Tech · Business · Creative · Healthcare · Education · Finance · Law
 
 ## 8. Go-To-Market Strategy
 
-### Phase 1 — Seed (Months 1–3)
-- Launch landing page + waitlist
-- Recruit 10–15 founding mentors (hand-picked)
-- Run first Joseph Talk event (virtual or local)
-- Enroll first 50 mentees (community outreach — churches, schools, youth orgs)
+### Phase 1 — Seed (Months 1–3) ← WE ARE HERE
+- [x] Launch landing page (index.html, about.html)
+- [x] Course 101 live with email capture
+- [x] Mentor application page live (mentors.html + Tally form)
+- [ ] Add Tally form questions (Form.txt) — URGENT
+- [ ] Register henceward.com — URGENT
+- [ ] Recruit 10–15 founding mentors (personal outreach)
+- [ ] Write + load 7-part mentee email sequence into Mailchimp
+- [ ] Run first Henceward Talk event (virtual, 1 speaker)
+- [ ] Claim @henceward social handles
 
 ### Phase 2 — Launch (Months 4–6)
-- Launch MVP website + mobile app
-- Open course: Identity (free)
-- Begin paid mentorship (Builder tier)
-- Press: faith-based media, youth entrepreneurship blogs, LinkedIn
+- [ ] Course 201 — Frame (interactive, with FRAME assessment)
+- [ ] Build join.html — dedicated mentee onboarding
+- [ ] Mentors browse page (real profiles, Calendly booking)
+- [ ] Begin paid mentorship — Builder tier (Stripe)
+- [ ] 50+ mentees enrolled via community outreach
+- [ ] Discord community server live
 
 ### Phase 3 — Scale (Months 7–12)
-- Full course library live
-- Partner with HBCUs, Christian universities, youth ministries
-- Launch Innovation City Institute event
-- Explore grant funding (education + youth development grants)
+- [ ] Migrate to Next.js + Supabase (when triggers are met — see log_update.md)
+- [ ] Full course library live (301, 401, Bonus)
+- [ ] Partner with HBCUs, youth ministries, schools
+- [ ] Launch Innovation City Institute event
+- [ ] Apply for education + youth development grants
+- [ ] Mobile app (React Native) development begins
 
 ---
 

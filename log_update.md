@@ -1,196 +1,224 @@
-# Joseph Project — Log & Jump-Start Document
+# Henceward — Build Log & Jump-Start Document
 
-> This file is your jump-start document. Pick up exactly where we left off.
-> Last updated: 2026-04-19 (session 3)
-
----
-
-## STATUS: Henceward Brand Complete · Logo + Favicon Live · Mailchimp Wired · All Pages Clean
-
-GitHub repo: https://github.com/VictorKilanko/joseph
-Live site: https://victorkilanko.github.io/joseph/
-Domain to register: `josephmovement.com` (confirmed available)
+> Read this file at the start of every session. It tells you exactly where we are and what to do next.
+> Last updated: 2026-04-19 (session 4)
 
 ---
 
-## What Has Been Done
+## QUICK REFERENCE
 
-- [x] **Idea validated** — Concept assessed, differentiation confirmed, risks identified (see Plan.md §1)
-- [x] **Brand identity defined** — Name (JOSEPH), tagline revised, tenets, tone, visual direction updated (Plan.md §2)
-- [x] **Platform architecture planned** — Website pages, app features, user flow (Plan.md §3)
-- [x] **Course curriculum outlined** — 101 Identity, 201 Frame, 301 Innovation, 401 Influence, Bonus (Plan.md §4)
-- [x] **Mentorship model designed** — Tiers, mentor vetting, pricing (Plan.md §5)
-- [x] **Events strategy mapped** — Joseph Talks, Build Weekends, Innovation City Institute (Plan.md §6)
-- [x] **Tech stack selected** — Static HTML/CSS/JS for landing page; Next.js + React Native planned for full platform (Plan.md §7)
-- [x] **Go-to-market strategy written** — 3 phases over 12 months (Plan.md §8)
-- [x] **Revenue model defined** — 6 revenue streams (Plan.md §9)
-- [x] **Vision statement drafted** (Plan.md §10)
-- [x] **GitHub repo created** — `VictorKilanko/joseph`, GitHub Pages enabled
-- [x] **Landing page v1 built & deployed** — Dark theme, animated hero, orbs, marquee, pillars, courses, waitlist
-- [x] **Landing page v2 redesigned & deployed** — Full messaging and structural overhaul:
-  - New hero: "Stop figuring it out alone." — mentorship-first copy
-  - Mentors section promoted to primary product section
-  - Working filter tabs: All, Tech, Business, Creative, Healthcare, Education, Finance, Law & Policy
-  - 9 sample mentor profiles with hover-reveal booking button
-  - Value props reframed: Get Mentored / Discover Yourself / Build Your Future
-  - Courses repositioned as self-discovery layer (not entry gate)
-  - Religious/spiritual language removed from homepage — kept inclusive
-  - Custom cursor, page loader, scroll reveal animations, mentor filter, count-up stats
-- [x] **About page built & deployed** (`about.html`) — World-class editorial copy covering:
-  - The Problem: why most people never discover who they are
-  - The Archetype: who a Joseph is (posture, not personality — women and men)
-  - Three Stages: Discover → Deploy → Build
-  - Five Beliefs: convictions that drive the platform
-  - Who This Is For: six self-identifying cards
-  - Closing manifesto: "Joseph exists to make sure you're one of them."
-- [x] **About nav link** wired from homepage to `about.html`
-- [x] **SVG favicon** added — matches the brand mark (gold top dot, purple base)
+| Item | Detail |
+|------|--------|
+| **Platform name** | HENCEWARD |
+| **Tagline** | Stop figuring it out alone. |
+| **Sub-tagline** | From here · Forward |
+| **GitHub repo** | https://github.com/VictorKilanko/joseph |
+| **Live site** | https://victorkilanko.github.io/joseph/ |
+| **Domain to register** | henceward.com (check availability first) |
+| **Mailchimp audience** | Henceward · ID: `00388b3ee6` · Server: `us9` |
+| **Mailchimp tags** | `Henceward Mentees` / `Henceward Mentors` |
+| **Tally form** | https://tally.so/r/gDNkWO (mentor application) |
+| **Tally form fields** | See `Form.txt` in this folder |
+| **Owner email** | victorkilanko@gmail.com |
 
 ---
 
-## What Is Left To Do
+## JUMP-START PROMPT (paste this into the next Claude session)
 
-### Immediate Next Steps (Start Here — In Priority Order)
-
-- [ ] **1. Register `henceward.com`** — Check availability first. If taken, try henceward.co or henceward.app. — ~$12/yr on Namecheap or GoDaddy. Most urgent — makes the site shareable and professional.
-- [ ] **2. Connect domain to GitHub Pages** — Repo → Settings → Pages → Custom domain → enter `henceward.com`. Add CNAME record at registrar pointing to `victorkilanko.github.io`.
-- [x] **3. Wire email capture to Mailchimp** — Course 101 gate + homepage waitlist both submit via JSONP to Henceward Mailchimp audience. Safe, no API key in frontend. — Free up to 500 contacts. Hook Course 101 gate + homepage waitlist into Mailchimp. Email list = the actual business asset.
-- [ ] **4. Build `mentors.html`** — "Become a Mentor" landing page (NOT a browse page). Emotional hook, mentor value props, who qualifies, Tally.so application form embedded. Top of mentor funnel.
-- [ ] **5. Add "Become a Mentor" CTA to homepage nav + hero** — Dual audience design: one path for mentees, one for mentors. See Plan.md §11.
-- [ ] **6. Build Tally.so mentor application form** — Name, LinkedIn, role, expertise, why Joseph, availability, rate. Free, no-code, beautiful.
-- [ ] **7. Recruit 10–15 founding mentors** — Send them: about.html + mentors.html + Tally form link. Personal outreach, not mass email.
-- [ ] **8. Write 7-part mentee email sequence** — See Plan.md §11. Triggers on Course 101 sign-up. Nurtures to mentor booking over 21 days.
-- [x] **9. Build `Course.html`** — Full interactive Course 101 (Identity) experience built as standalone HTML/CSS/JS:
-  - Email + name gate (localStorage, blocks all content until submitted)
-  - 6 fully written modules with animated content reveals
-  - Pull quotes, insight boxes, CORE framework displays, pressure test grids
-  - 3 reflection/journal questions per module (auto-save to localStorage)
-  - 2 multiple-choice quiz questions per module with animated feedback
-  - Module locking system — complete quiz to unlock next module
-  - Confetti celebration on each module completion
-  - Course complete screen with certificate (personalized with user name)
-  - Personal Journal modal (accessible from nav — shows all reflection answers)
-  - Top progress bar + sidebar progress tracker
-  - Mobile-responsive with hamburger menu
-  - Matches index.html design language (same fonts, colors, cursor, animations)
-- [x] **8. Design logo + favicon** — `logo.svg` (full horizontal lockup: H→ mark + HENCEWARD wordmark + tagline "FROM HERE · FORWARD") and `favicon.svg` (mark only) created. All 4 HTML pages updated to use new favicon. European geometric design: dual-pillar H with forward arrow crossbar, purple/gold brand gradients.
-- [ ] **9. Set up social media handles** — Instagram, LinkedIn, TikTok: @josephmovement (check availability). Start posting before the full platform is built.
-
-### Short-Term (Next 30 Days)
-
-- [ ] **Recruit founding mentors** — 10–15 professionals, hand-picked, mission-aligned
-- [ ] **Build mentor profile pages** — name, bio, expertise, availability, book session
-- [ ] **Integrate Stripe** — subscription billing for Builder + Founder tiers
-- [ ] **Integrate Calendly or Daily.co** — session scheduling + video
-- [ ] **Build course player** — start with Teachable or build custom in Next.js
-- [ ] **Community feature** — Discord server (short-term) → custom feed (long-term)
-- [ ] **Plan first Joseph Talk** — date, speaker, venue (virtual first)
-
-### Medium-Term (30–90 Days)
-
-- [ ] **Launch MVP publicly** — website + app beta
-- [ ] **Onboard first 50 mentees** — via churches, schools, youth orgs
-- [ ] **Launch Frame (201) and Innovation (301) courses**
-- [ ] **Set up email sequences** — welcome flow, course nudges, session reminders
-- [ ] **Apply for youth development / education grants**
-- [ ] **Build out blog/content section** — 5–10 foundational articles
-
-### Long-Term (90+ Days)
-
-- [ ] Launch Innovation City Institute (annual event)
-- [ ] Partner with HBCUs + Christian universities
-- [ ] Build full mobile app (React Native)
-- [ ] Explore corporate sponsorship program
-- [ ] Launch Influence (401) + American Dream courses
-- [ ] International expansion planning
+> "We are building Henceward — a mentorship platform for high schoolers and young adults. The brand, platform, and strategy are fully defined. The static site is live on GitHub Pages at https://victorkilanko.github.io/joseph/. Read Plan.md for full strategy and log_update.md for current status. Pick up from [CURRENT TASK]."
 
 ---
 
-## Key Decisions Still Open
+## WHAT HAS BEEN BUILT (complete)
 
-| Decision | Options | Recommendation |
-|----------|---------|----------------|
-| Platform name | "Joseph", "Joseph Movement" | **Resolved: JOSEPH** (brand name). Domain: josephmovement.com |
-| Homepage tagline | Multiple options tested | **Resolved: "Stop figuring it out alone."** |
-| Mentor entry | Course/quiz first vs. browse freely | **Resolved: Browse freely, no gate** |
-| Spiritual language on homepage | Faith-forward vs. inclusive | **Resolved: Inclusive — philosophy on inner pages** |
-| Course delivery | Teachable vs. custom LMS | Start Teachable, migrate later |
-| Community platform | Discord vs. Circle vs. custom | Start Discord, build custom at scale |
-| Mobile app timing | Build now vs. after web launch | Build web first, app at 6 months |
-| Monetization start | Free only vs. charge from day 1 | Free tier + paid at launch |
-| Mentor filter categories | Individual niches vs. grouped | **Resolved: All/Tech/Business/Creative/Healthcare/Education/Finance/Law & Policy** |
+### Strategy & Planning
+- [x] Idea validated — concept, differentiation, risks (Plan.md §1)
+- [x] Brand identity — HENCEWARD, visual system, tone, taglines (Plan.md §2)
+- [x] Platform architecture — pages, app features, user flow (Plan.md §3)
+- [x] Course curriculum — 101 Identity, 201 Frame, 301 Innovation, 401 Influence, Bonus (Plan.md §4)
+- [x] Mentorship model — 3 tiers (Explorer/Builder/Founder), mentor vetting, revenue split (Plan.md §5)
+- [x] Events strategy — Henceward Talks, Build Weekends, Innovation City Institute (Plan.md §6)
+- [x] Tech stack selected — static HTML now → Next.js + Supabase + Stripe later (Plan.md §7)
+- [x] Go-to-market — 3-phase plan over 12 months (Plan.md §8)
+- [x] Revenue model — 6 streams (Plan.md §9)
+- [x] Vision statement (Plan.md §10)
+- [x] Dual funnel strategy — mentee journey + mentor journey, email sequences, content pillars (Plan.md §11)
+
+### Brand & Design
+- [x] Full rebrand: JOSEPH → **HENCEWARD** across all files
+- [x] Logo designed: "H→ mark" — two pillars (purple/gold) + white forward arrow crossbar
+- [x] `favicon.svg` — mark only, all 4 pages updated
+- [x] `logo.svg` — full lockup: mark + HENCEWARD wordmark + "FROM HERE · FORWARD" tagline
+- [x] Nav logo updated on all pages to H→ mark
+- [x] Design system: #07070F bg · #8B5CF6 purple · #F59E0B gold · Syne + Outfit + JetBrains Mono
+
+### Website (GitHub Pages — static HTML/CSS/JS)
+- [x] `index.html` — Homepage v2: hero, mentor grid + filter, how it works, courses, waitlist, footer
+- [x] `about.html` — Brand story: "Why Henceward?", archetype (Joseph of Egypt inspiration), beliefs, who it's for, manifesto
+- [x] `Course.html` — Full interactive Course 101 (Identity):
+  - Email + name gate → auto-submits to Mailchimp
+  - 6 modules (full content, animations, pull quotes, insight boxes)
+  - 3 reflection journal questions per module (auto-save to localStorage)
+  - 2 quiz questions per module with animated feedback
+  - Module locking — complete quiz to unlock next
+  - Confetti celebration per module + course complete screen
+  - Personalized certificate (shows user's name)
+  - Personal journal modal (view all reflections in one place)
+  - Top progress bar + sidebar module tracker
+  - Mobile-responsive
+- [x] `mentors.html` — "Become a Mentor" landing page:
+  - Hero: "Be the mentor you wish you had."
+  - Why mentor (4 value props), who qualifies (5 criteria), 3-step process
+  - Founding mentor spotlight profiles
+  - Tally application form embedded in modal
+- [x] `Course.html` linked from homepage Course 101 card (LIVE badge)
+- [x] `mentors.html` linked in homepage nav ("Become a Mentor")
+
+### Email & Forms
+- [x] Mailchimp account — audience "Henceward" created with tags
+- [x] Course 101 gate → submits email + first name to Mailchimp via JSONP (safe, no API key exposed)
+- [x] Homepage waitlist form → submits to Mailchimp via JSONP
+- [x] Tally mentor application form created — ID: gDNkWO — PUBLISHED but needs questions added
+- [x] `Form.txt` — all 12 Tally field definitions + Mailchimp integration instructions saved
+
+### Courses Content (markdown — not yet interactive)
+- [x] `Courses/101_Identity.md` — 6-module course content (full)
+- [x] `Courses/101_Identity_Quiz.md` — 20-question reflective assessment
+- [x] `Courses/201_Frame.md` — FRAME framework course content
+- [x] `Courses/201_Frame_Quiz.md`
+- [x] `Courses/301_Innovation.md`
+- [x] `Courses/401_Influence.md`
+- [x] `Courses/README.md` — curriculum overview + FRAME acronym explained
 
 ---
 
-## Tech Repos / Assets to Create
+## WHAT IS LEFT — IN PRIORITY ORDER
 
-```
-joseph-project/
-├── web/          ← Next.js website
-├── app/          ← React Native mobile app
-├── backend/      ← API (if separate from Next.js)
-├── content/      ← Course scripts, blog posts
-└── design/       ← Brand assets, logos, mockups
-```
+### 🔴 DO THIS NOW (blocks everything else)
 
----
+**1. Add questions to Tally form** ← USER TASK (takes 15 min)
+   - Go to tally.so → open form gDNkWO → Edit
+   - Add all 12 fields from `Form.txt`
+   - Republish when done
+   - Then connect: Tally → Integrations → Mailchimp → tag "Henceward Mentors"
 
-## People / Roles Needed
+**2. Register henceward.com** ← USER TASK (takes 5 min)
+   - Go to namecheap.com → search henceward.com → register (~$12/yr)
+   - If taken: henceward.co or henceward.app
+   - This makes the site shareable and professional
 
-| Role | Priority | Notes |
-|------|----------|-------|
-| Designer (UI/UX + brand) | High | Logo, site, app |
-| Developer (Full-stack) | High | Next.js + React Native |
-| Content writer | Medium | Courses + blog |
-| Community manager | Medium | Discord / events |
-| Mentor relations lead | Medium | Recruit + vet mentors |
+**3. Connect domain to GitHub Pages** ← USER TASK (takes 10 min)
+   - GitHub → repo → Settings → Pages → Custom domain → type henceward.com → Save
+   - At registrar: add CNAME record → `victorkilanko.github.io`
 
 ---
 
-## Contact / Accounts to Set Up
+### 🟡 BUILD NEXT (Claude can do these)
 
-- [ ] Domain registration
-- [ ] GitHub organization
-- [ ] Supabase project
-- [ ] Stripe account
-- [ ] Vercel account
-- [ ] Resend (email) account
-- [ ] Sanity.io (CMS)
-- [ ] Social media handles: Instagram, LinkedIn, TikTok — @josephproject or @josephgeneration
+**4. Write 7-part mentee email sequence**
+   - Triggers when someone submits Course 101 gate
+   - Loaded into Mailchimp as an automation
+   - See Plan.md §11 for the full email-by-email outline
+   - Output: 7 emails written, ready to paste into Mailchimp
+
+**5. Build Course 201 — Frame (interactive)**
+   - Same structure as Course.html but for Course 201
+   - The FRAME quiz is the centrepiece: a real personality/gifts assessment
+   - F = Fire (passion) · R = Roots (experience) · A = Abilities · M = Makeup (personality) · E = Expression
+   - Content already exists in Courses/201_Frame.md
+
+**6. Homepage improvements**
+   - Add "Become a Mentor" as a more prominent second CTA in the hero (not just nav)
+   - Add a social proof section (real testimonial or quote)
+   - Update mentor count + stats to feel real
+
+**7. Build join.html — dedicated mentee onboarding**
+   - Captures: name, email, age range, area of interest, what they want from a mentor
+   - Goes into Mailchimp with tag "Henceward Mentees"
+   - Triggers the 7-part email sequence
+
+**8. Set up social media handles** ← USER TASK
+   - Check @henceward on Instagram, LinkedIn, TikTok, X
+   - Claim them all even if you don't post yet
 
 ---
 
-## Migration: Static Site → Full Platform
+### 🟢 SHORT-TERM (next 30 days)
 
-The current site (GitHub Pages, static HTML/CSS/JS) is a landing page only — no backend, no auth, no database, no payments. The full platform requires a proper stack.
+- [ ] Recruit 10–15 founding mentors — send: about.html + mentors.html + tally.so/r/gDNkWO
+- [ ] Build mentors-browse.html — public mentor directory (once real profiles exist)
+- [ ] Build pricing.html — clear tier breakdown (Explorer free / Builder $29 / Founder $79)
+- [ ] Integrate Calendly per mentor (for session booking)
+- [ ] Plan first Henceward Talk event (virtual, 1 speaker, 1 hour)
+- [ ] Build Course 301 — Innovation (interactive)
+- [ ] Start blog: 3 foundational articles (identity, purpose, mentorship)
 
-**Full stack planned:**
-- Frontend: Next.js on Vercel
-- Database + Auth: Supabase
-- Payments: Stripe
-- Video sessions: Daily.co or Whereby
-- Courses: Teachable (start) → custom LMS (scale)
-- Mobile: React Native (Expo) — Phase 2
+---
 
-**The design, copy, and brand carry directly into Next.js — migration, not a rebuild.**
+### 🔵 MEDIUM-TERM (30–90 days)
 
-**Green light to migrate when:**
-- [ ] `josephmovement.com` registered and live
+- [ ] Onboard first 50 mentees — outreach via churches, schools, youth orgs
+- [ ] Set up Discord community server
+- [ ] Apply for education/youth development grants
+- [ ] Build Course 401 — Influence (interactive)
+- [ ] Launch Bonus Course — American Dream Reimagined
+
+---
+
+### ⚫ WHEN TO MIGRATE TO NEXT.JS
+
+Trigger conditions (all must be true before migrating):
+- [ ] henceward.com registered and live
 - [ ] 15+ real mentors recruited and confirmed
 - [ ] 100+ real emails on the waitlist
-- [ ] At least one course content outline ready
+- [ ] 3 courses live (101, 201, 301)
 
-**Rough timeline once green light is hit:**
-- Week 1–4: Next.js app — auth, real mentor profiles, Calendly booking, Supabase DB
-- Week 5–10: Stripe payments, course player, mentee + mentor dashboards
-- Month 4–6: React Native mobile app, events system, community features
-
-**Note:** Can start scaffolding the Next.js project in parallel while the static site collects interest — so the skeleton is ready when trigger conditions are met. Pick this up next session if ready.
+Migration scope: Next.js + Supabase (auth + DB) + Stripe (payments) + Calendly/Daily.co (sessions)
+Timeline once triggered: ~10 weeks to full MVP
 
 ---
 
-## Jump-Start Prompt (for next Claude session)
+## KEY DECISIONS LOG
 
-> "We're building the Joseph Project — a mentorship platform for high schoolers and young adults. The plan is in Plan.md and the status log is in log_update.md. Pick up from [CURRENT TASK] and continue building."
+| Decision | Status | Resolution |
+|----------|--------|------------|
+| Platform name | ✅ Resolved | **HENCEWARD** |
+| Homepage tagline | ✅ Resolved | "Stop figuring it out alone." |
+| Domain | ⏳ Pending | henceward.com — register ASAP |
+| Mentor entry | ✅ Resolved | Browse freely, no gate |
+| Spiritual language | ✅ Resolved | Inclusive on homepage; philosophy on inner pages |
+| Course delivery | ✅ In progress | Custom HTML (built). Next.js LMS at scale. |
+| Email platform | ✅ Resolved | Mailchimp (Henceward audience, tags for segmentation) |
+| Mentor applications | ✅ Resolved | Tally form (gDNkWO) — needs questions added |
+| Community | ⏳ Pending | Discord to start → custom at scale |
+| Mobile app | ⏳ Pending | Build after web MVP is validated |
+| Monetization | ⏳ Pending | Free tier live. Paid tiers when Stripe is integrated. |
 
 ---
+
+## ACCOUNTS & CREDENTIALS
+
+| Service | Status | Notes |
+|---------|--------|-------|
+| GitHub | ✅ Live | github.com/VictorKilanko/joseph |
+| GitHub Pages | ✅ Live | victorkilanko.github.io/joseph |
+| Mailchimp | ✅ Live | Audience: Henceward · ID: 00388b3ee6 |
+| Tally | ✅ Live | Form: gDNkWO · needs questions added |
+| Domain (henceward.com) | ❌ Not registered | Register on Namecheap |
+| Vercel | ❌ Not set up | Needed for Next.js migration |
+| Supabase | ❌ Not set up | Needed for auth + database |
+| Stripe | ❌ Not set up | Needed for paid tiers |
+| Discord | ❌ Not set up | Community — set up when first 25 members |
+| Social media @henceward | ❌ Not claimed | Instagram, LinkedIn, TikTok, X |
+
+---
+
+## PEOPLE / ROLES STILL NEEDED
+
+| Role | Priority | Why |
+|------|----------|-----|
+| 10–15 Founding Mentors | 🔴 High | Core product doesn't work without real mentors |
+| UI/UX Designer | 🟡 Medium | Polish brand, build design system in Figma |
+| Full-stack Developer | 🟡 Medium | Next.js migration when triggers are met |
+| Community Manager | 🟢 Later | Run Discord, events, social |
+| Content Writer | 🟢 Later | Blog, email sequences, course refinement |
