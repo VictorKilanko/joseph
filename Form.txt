@@ -1,0 +1,128 @@
+HENCEWARD — MENTOR APPLICATION FORM
+=====================================
+Platform: Tally.so | Form ID: gDNkWO
+Public URL: https://tally.so/r/gDNkWO
+Last updated: April 2026
+
+Add these fields in Tally in this exact order:
+-----------------------------------------------
+
+FIELD 1
+Type: Short text
+Label: Full name
+Required: Yes
+
+FIELD 2
+Type: Short text
+Label: Current job title
+Required: Yes
+
+FIELD 3
+Type: Short text
+Label: Company or organization
+Required: Yes
+
+FIELD 4
+Type: Input (URL)
+Label: LinkedIn profile URL
+Required: Yes
+
+FIELD 5
+Type: Checkboxes
+Label: Which areas can you mentor in? (Select all that apply)
+Options:
+  - Technology
+  - Business
+  - Creative
+  - Healthcare
+  - Finance
+  - Law & Policy
+  - Education
+  - Entrepreneurship
+  - Non-Profit / Social Impact
+  - Other
+Required: Yes
+
+FIELD 6
+Type: Dropdown
+Label: Years of professional experience
+Options:
+  - 3–5 years
+  - 5–10 years
+  - 10–15 years
+  - 15+ years
+Required: Yes
+
+FIELD 7
+Type: Long text
+Label: Why does Henceward resonate with you?
+Description: Tell us what drew you to this platform and why mentoring the next generation matters to you.
+Required: Yes
+
+FIELD 8
+Type: Long text
+Label: What would you bring to a mentee?
+Description: Think about your story — your path, your lessons, your failures and wins. What does a young person gain from access to you?
+Required: Yes
+
+FIELD 9
+Type: Multiple choice (single select)
+Label: Preferred session type
+Options:
+  - Paid sessions (I'd like to set a rate)
+  - Volunteer (I'll give my time for free)
+  - Either works for me
+Required: Yes
+
+FIELD 10
+Type: Short text
+Label: If paid — what is your preferred hourly rate? (e.g. $50/hr)
+Description: Leave blank if volunteering.
+Required: No
+
+FIELD 11
+Type: Email
+Label: Email address
+Required: Yes
+
+FIELD 12
+Type: Phone number (optional)
+Label: Phone number
+Required: No
+
+
+=====================================
+FORM SETTINGS (configure in Tally)
+=====================================
+
+- Redirect after submit: Show a thank-you message (custom text below)
+- Notifications: Send email to victorkilanko@gmail.com on every submission
+
+THANK YOU MESSAGE (paste into Tally's success screen):
+-------------------------------------------------------
+Thank you for applying to become a Henceward mentor.
+
+We review every application personally. If your profile is a strong fit,
+you'll hear from us within 3–5 business days to schedule a short
+15-minute values-alignment call.
+
+We're building something real — and we're glad you want to be part of it.
+
+— The Henceward Team
+
+
+=====================================
+MAILCHIMP INTEGRATION (do this in Tally)
+=====================================
+
+After adding all fields:
+1. Go to Integrations tab in Tally
+2. Click Mailchimp → Connect
+3. Select audience: Henceward
+4. Map: Email field → EMAIL
+5. Map: Full name → FNAME
+6. Add tag: Henceward Mentors
+7. Save
+
+This will automatically add every applicant to your
+Mailchimp list with the "Henceward Mentors" tag.
