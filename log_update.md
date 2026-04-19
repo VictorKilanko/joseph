@@ -1,11 +1,11 @@
 # Joseph Project — Log & Jump-Start Document
 
 > This file is your jump-start document. Pick up exactly where we left off.
-> Last updated: 2026-04-19 (session 2)
+> Last updated: 2026-04-19 (session 3)
 
 ---
 
-## STATUS: Landing Page Live — Refining & Building Out
+## STATUS: Course 101 Live · Dual Funnel Strategy Defined · Building Mentor Pipeline
 
 GitHub repo: https://github.com/VictorKilanko/joseph
 Live site: https://victorkilanko.github.io/joseph/
@@ -54,11 +54,13 @@ Domain to register: `josephmovement.com` (confirmed available)
 
 - [ ] **1. Register `josephmovement.com`** — ~$12/yr on Namecheap or GoDaddy. Most urgent — makes the site shareable and professional.
 - [ ] **2. Connect domain to GitHub Pages** — Repo → Settings → Pages → Custom domain → enter `josephmovement.com`. Add CNAME record at registrar pointing to `victorkilanko.github.io`.
-- [ ] **3. Wire up waitlist email form** — Sign up for Mailchimp (free up to 500 contacts). Replace the form's `onsubmit` handler with a Mailchimp embed or API call. Starts capturing real leads immediately.
-- [ ] **4. Build mentor application form** — Use Tally.so (free, beautiful, no-code). Fields: name, role, company, expertise areas, why Joseph, availability. Share the link to start recruiting.
-- [ ] **5. Recruit 10–15 founding mentors** — Hand-pick professionals you know or can reach. Send them the about page + application form. Real mentors = real product.
-- [ ] **6. Build `mentors.html`** — Dedicated mentors browse page with real profiles, full bios, expertise tags, and booking links (Calendly per mentor).
-- [x] **7. Build `Course.html`** — Full interactive Course 101 (Identity) experience built as standalone HTML/CSS/JS:
+- [ ] **3. Wire email capture to Mailchimp** — Free up to 500 contacts. Hook Course 101 gate + homepage waitlist into Mailchimp. Email list = the actual business asset.
+- [ ] **4. Build `mentors.html`** — "Become a Mentor" landing page (NOT a browse page). Emotional hook, mentor value props, who qualifies, Tally.so application form embedded. Top of mentor funnel.
+- [ ] **5. Add "Become a Mentor" CTA to homepage nav + hero** — Dual audience design: one path for mentees, one for mentors. See Plan.md §11.
+- [ ] **6. Build Tally.so mentor application form** — Name, LinkedIn, role, expertise, why Joseph, availability, rate. Free, no-code, beautiful.
+- [ ] **7. Recruit 10–15 founding mentors** — Send them: about.html + mentors.html + Tally form link. Personal outreach, not mass email.
+- [ ] **8. Write 7-part mentee email sequence** — See Plan.md §11. Triggers on Course 101 sign-up. Nurtures to mentor booking over 21 days.
+- [x] **9. Build `Course.html`** — Full interactive Course 101 (Identity) experience built as standalone HTML/CSS/JS:
   - Email + name gate (localStorage, blocks all content until submitted)
   - 6 fully written modules with animated content reveals
   - Pull quotes, insight boxes, CORE framework displays, pressure test grids

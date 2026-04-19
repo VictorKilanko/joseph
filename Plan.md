@@ -214,6 +214,114 @@ All · Tech · Business · Creative · Healthcare · Education · Finance · Law
 
 ---
 
+## 11. User Journeys & Marketing Funnels
+
+### The Core Principle (Seth Godin)
+> *"Find the smallest viable audience. Make something remarkable for them. Let them spread it."*
+
+Joseph has two distinct users — mentees and mentors — each with their own emotional journey, entry point, and reasons to stay. The website must be designed to serve BOTH simultaneously without confusing either. Every page should know who it's talking to.
+
+---
+
+### MENTEE JOURNEY — "Stop Figuring It Out Alone"
+
+The emotional truth: *"I know I'm made for something, but I don't know what it is, and I feel behind."*
+
+| Stage | What They Feel | What Joseph Does | Touch Point |
+|-------|---------------|-----------------|-------------|
+| **Awareness** | Lost, comparing, confused | Speak to the feeling — not the product | Social content, blog, word of mouth |
+| **First Touch** | Curious but skeptical | Prove we understand them — fast | Homepage hero copy |
+| **Hook** | "This is for me" | Give them something free and valuable | Course 101 (email gate) |
+| **Nurture** | Engaged but uncommitted | Deliver value before asking for anything | Email sequence (7-part) |
+| **Convert** | Ready to invest | Make the next step obvious and low-risk | Book free session / upgrade to Builder |
+| **Retain** | Growing | Keep the momentum going | Weekly dispatch, journal prompts |
+| **Advocate** | Transformed | Give them a story to tell | Shareable certificate, refer-a-friend |
+
+**Mentee Email Sequence (7 emails after Course 101 sign-up):**
+1. Day 0 — Welcome + Course 101 link: *"Your journey starts here."*
+2. Day 2 — "Here's what Module 1 says about why you feel stuck."
+3. Day 5 — Mid-course check-in + one insight from the course
+4. Day 8 — "You've finished Identity. Here's what comes next — Frame."
+5. Day 12 — Mentor spotlight: a real story of transformation
+6. Day 16 — Soft pitch: "You're ready for a mentor. Here's how it works."
+7. Day 21 — "Book your first free session. No commitment. Just a conversation."
+
+---
+
+### MENTOR JOURNEY — "Be the Mentor You Wish You Had"
+
+The emotional truth: *"I've built something real. I know what it took. I want to give someone else a shorter path."*
+
+| Stage | What They Feel | What Joseph Does | Touch Point |
+|-------|---------------|-----------------|-------------|
+| **Awareness** | Successful, want to give back | Tell them their story matters to the next generation | LinkedIn content, existing mentor referrals |
+| **First Touch** | Intrigued, slightly uncertain | Show them the vision clearly and quickly | mentors.html landing page |
+| **Application** | Committed, want to be vetted | Make the process feel intentional, not bureaucratic | Clean application form (Tally.so) |
+| **Onboarding** | Excited, want to feel prepared | Equip them with tools + context | Welcome kit, onboarding call |
+| **First Session** | Slightly nervous | Make booking seamless and well-supported | Calendly integration |
+| **Active** | Energized, building a reputation | Feature them, celebrate them | Mentor spotlight emails, "Founding Mentor" badge |
+| **Advocate** | Proud and invested | Give them something to recruit with | Referral program, speaking invitations |
+
+---
+
+### THE HOMEPAGE — Dual Audience Design
+
+The homepage must serve two people at once: the confused 19-year-old and the 35-year-old VP who wants to give back.
+
+**Current problem:** Homepage only has ONE CTA direction (browse mentors / join waitlist).
+**Fix:** Add a clear fork — two paths, two identities:
+
+```
+Primary CTA:    [ Find a Mentor — Free ]
+Secondary CTA:  [ Become a Mentor → ]
+```
+
+The "Become a Mentor" link goes to `mentors.html` — a dedicated landing page with its own value proposition, social proof, and application form.
+
+---
+
+### PAGES NEEDED FOR COMPLETE FUNNELS
+
+| Page | Audience | Purpose | Priority |
+|------|---------|---------|----------|
+| `mentors.html` | Mentor prospects | Convert professionals into applicants | 🔴 High |
+| `join.html` | Mentees | Dedicated sign-up + onboarding flow | 🔴 High |
+| `blog/` | Both | Organic traffic + trust building | 🟡 Medium |
+| `pricing.html` | Mentees | Transparent tiers, reduce friction | 🟡 Medium |
+| `dashboard.html` | Logged-in users | Hub for sessions, courses, progress | 🟢 Later |
+
+---
+
+### LEAD CAPTURE STRATEGY
+
+**For Mentees:**
+- Course 101 email gate (primary lead capture — already live)
+- Homepage waitlist form (secondary)
+- Blog post CTAs ("Get the free Identity guide")
+- Event RSVP (captures name + email + interest level)
+
+**For Mentors:**
+- mentors.html application form (primary)
+- "Know someone who'd make a great mentor?" referral link
+- LinkedIn outreach → profile page → apply
+
+**Email is the asset. Social media is the amplifier.**
+Every piece of content should drive back to an email capture. The email list is the business. Social followers are borrowed audiences; email subscribers are owned.
+
+---
+
+### CONTENT PILLARS (Organic Growth Engine)
+
+Three content themes that attract both audiences:
+
+1. **Identity & Purpose** — "Why Most People Never Discover Who They Are" (attracts mentees)
+2. **Generational Impact** — "What It Means to Be a Nation Builder in 2026" (attracts both)
+3. **Mentor Stories** — "I Gave 2 Hours a Month for a Year. Here's What It Built." (attracts mentors)
+
+Post formats: Instagram carousels, TikTok short-form, LinkedIn long-form, email newsletter.
+
+---
+
 ## 10. Vision Statement (Draft)
 
 > *Joseph is a movement for the next generation of nation builders — young people who know who they are, understand how they're made, and use their gifts to solve the problems of their time. We believe every person carries divinity — creativity, purpose, and the capacity to change the world. Our job is to find that in you, frame it, and unleash it.*
