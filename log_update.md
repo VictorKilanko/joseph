@@ -5,7 +5,7 @@
 
 ---
 
-## STATUS: Rebranded to HENCEWARD · Mailchimp Live · mentors.html Built · Course 101 Live
+## STATUS: Henceward Brand Complete · Logo + Favicon Live · Mailchimp Wired · All Pages Clean
 
 GitHub repo: https://github.com/VictorKilanko/joseph
 Live site: https://victorkilanko.github.io/joseph/
@@ -73,7 +73,7 @@ Domain to register: `josephmovement.com` (confirmed available)
   - Top progress bar + sidebar progress tracker
   - Mobile-responsive with hamburger menu
   - Matches index.html design language (same fonts, colors, cursor, animations)
-- [ ] **8. Design final logo file** — Export the SVG brand mark as a proper logo file for use across social media, print, and app. Figma or work with a designer.
+- [x] **8. Design logo + favicon** — `logo.svg` (full horizontal lockup: H→ mark + HENCEWARD wordmark + tagline "FROM HERE · FORWARD") and `favicon.svg` (mark only) created. All 4 HTML pages updated to use new favicon. European geometric design: dual-pillar H with forward arrow crossbar, purple/gold brand gradients.
 - [ ] **9. Set up social media handles** — Instagram, LinkedIn, TikTok: @josephmovement (check availability). Start posting before the full platform is built.
 
 ### Short-Term (Next 30 Days)

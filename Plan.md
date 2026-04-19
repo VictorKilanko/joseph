@@ -45,7 +45,10 @@ These live on the About/inner pages, NOT the homepage. Homepage stays product-fo
 - **Color Palette**: Near-black `#07070F` + deep violet `#8B5CF6` + electric amber `#F59E0B` + white
 - **Accent**: Coral `#FB7185` for warmth; green `#4ADE80` for "Available" status
 - **Typography**: *Syne* (brand/headings, 800 weight) + *Outfit* (body) + *JetBrains Mono* (labels/tags)
-- **Logo Mark**: Triangle of three dots — gold top (vision/dream), purple base left + right (community/foundation). Thin connecting lines. Clean, symbolic, non-religious.
+- **Logo Mark**: "The H→" — two geometric pillars (left: purple, right: gold — taller, suggesting ambition and forward lean) connected by a white forward arrow crossbar. Reads as both the letter H and as directional energy. Clean, Swiss-style geometry. Works at 16px favicon to billboard scale.
+- **Wordmark**: HENCEWARD in Syne 800, letter-spaced, purple-to-gold gradient.
+- **Tagline mark**: "FROM HERE · FORWARD" in small caps beneath the wordmark.
+- **Files**: `logo.svg` (full lockup), `favicon.svg` (mark only).
 - **Dark mode first**: Primary experience is dark. Light mode planned for later.
 - **Imagery**: Real young people. Diverse. In action — building, creating, mentoring. Not stock-photo-generic.
 

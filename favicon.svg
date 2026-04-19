@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="pl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="#07070F"/>
+  <!-- Left pillar: purple -->
+  <rect x="5" y="9" width="6" height="16" rx="2" fill="url(#pl)"/>
+  <!-- Right pillar: gold, taller (ambition, forward lean) -->
+  <rect x="21" y="6" width="6" height="19" rx="2" fill="url(#gl)"/>
+  <!-- Arrow crossbar: points henceward -->
+  <line x1="11" y1="17" x2="20" y2="17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-opacity="0.9"/>
+  <path d="M17,13.5 L21.5,17 L17,20.5" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+</svg>
